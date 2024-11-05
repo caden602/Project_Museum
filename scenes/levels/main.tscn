@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf5ngwvuv5mcw"]
+
+[ext_resource type="PackedScene" uid="uid://q85t8tsv1jaj" path="res://assets/player.tscn" id="1_rrj3h"]
+[ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
+[ext_resource type="PackedScene" uid="uid://cum3uhbgu6q8j" path="res://scenes/ui/dialog_player.tscn" id="3_lwolx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8vy4"]
+size = Vector2(256, 476)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
+size = Vector2(99, 264)
+
+[node name="main" type="Node2D"]
+process_mode = 3
+
+[node name="Player" parent="." instance=ExtResource("1_rrj3h")]
+
+[node name="Barrier" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
+position = Vector2(795, 229)
+shape = SubResource("RectangleShape2D_h8vy4")
+
+[node name="DialogAreaDoor" parent="." instance=ExtResource("2_gwkgc")]
+position = Vector2(167, 0)
+text_key = "door"
+
+[node name="CollisionShape2D" parent="DialogAreaDoor" index="0"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_oeyrb")
+
+[node name="DialogPlayer" parent="." instance=ExtResource("3_lwolx")]
+scene_text_file = "res://dialog/world_dialog.json"
+
+[editable path="DialogAreaDoor"]
