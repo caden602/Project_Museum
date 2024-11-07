@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://singletons/signal_bus.gd"
 
+[display]
+
+window/size/viewport_width=400
+window/size/viewport_height=224
+window/stretch/mode="viewport"
+
 [input]
 
 move_left={

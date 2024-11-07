@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5p1hhu66drwm"
-path="res://.godot/imported/Dialogue-Background.png-53a010ae89a23efdc2eb8d89b8281c42.ctex"
+uid="uid://c0kfki6sjeksj"
+path="res://.godot/imported/Black.png-56c7ff9821248a8490e8f9271831482c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Dialogue-Background.png"
-dest_files=["res://.godot/imported/Dialogue-Background.png-53a010ae89a23efdc2eb8d89b8281c42.ctex"]
+source_file="res://assets/sprites/test_sprites/Black.png"
+dest_files=["res://.godot/imported/Black.png-56c7ff9821248a8490e8f9271831482c.ctex"]
 
 [params]
 
