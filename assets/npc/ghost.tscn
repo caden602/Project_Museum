@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5xselpma78xk"]
+[gd_scene load_steps=7 format=3 uid="uid://c5xselpma78xk"]
 
 [ext_resource type="Texture2D" uid="uid://c0kfki6sjeksj" path="res://assets/sprites/test_sprites/Black.png" id="1_4ioar"]
 [ext_resource type="Shader" path="res://assets/shaders/ghost.gdshader" id="1_kdctt"]
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_kq4yg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hjkvm"]
 shader = ExtResource("1_kdctt")
@@ -16,6 +17,8 @@ radius = 5.0
 radius = 8.06226
 
 [node name="Ghost" type="CharacterBody2D"]
+position = Vector2(182, 101)
+script = ExtResource("1_kq4yg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hjkvm")
