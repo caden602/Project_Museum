@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf5ngwvuv5mcw"]
+[gd_scene load_steps=8 format=3 uid="uid://cf5ngwvuv5mcw"]
 
 [ext_resource type="PackedScene" uid="uid://q85t8tsv1jaj" path="res://assets/actors/player.tscn" id="1_rrj3h"]
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
+[ext_resource type="PackedScene" uid="uid://c5xselpma78xk" path="res://assets/npc/ghost.tscn" id="3_ad10v"]
 [ext_resource type="PackedScene" uid="uid://cum3uhbgu6q8j" path="res://scenes/ui/dialog_player.tscn" id="3_lwolx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
@@ -27,6 +28,7 @@ metadata/_edit_lock_ = true
 position = Vector2(144, 170)
 
 [node name="Barrier" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Barrier"]
 polygon = PackedVector2Array(337, 113, 401, 226, 400, 2, 0, 1, 0, 225, 64, 112)
@@ -34,6 +36,7 @@ polygon = PackedVector2Array(337, 113, 401, 226, 400, 2, 0, 1, 0, 225, 64, 112)
 [node name="DialogAreaDoor" parent="." instance=ExtResource("2_gwkgc")]
 position = Vector2(167, 0)
 text_key = "door"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="DialogAreaDoor" index="0"]
 position = Vector2(-75.625, 84.25)
@@ -45,5 +48,8 @@ shape = SubResource("RectangleShape2D_j6h7x")
 
 [node name="DialogPlayer" parent="." instance=ExtResource("3_lwolx")]
 scene_text_file = "res://dialog/world_dialog.json"
+
+[node name="Ghost" parent="." instance=ExtResource("3_ad10v")]
+position = Vector2(244, 130)
 
 [editable path="DialogAreaDoor"]

@@ -7,13 +7,13 @@ uniform float glowIntensity = 1.5; // adjust glow intensity
 void fragment() {
     // Calculate glow
     vec4 glow = lightColor * glowIntensity;
-    
+
     // Combine lighting and glow
     vec4 finalColor = lightColor + glow;
-    
+
     // Apply transparency
     finalColor.a = transparency;
-    
+
     // Output final color
     COLOR = finalColor;
 }
