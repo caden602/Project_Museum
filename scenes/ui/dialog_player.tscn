@@ -7,7 +7,6 @@
 [node name="DialogPlayer" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("3")
-scene_text_file = null
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -39,4 +38,22 @@ autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.23
 
+[node name="ChoiceContainer" type="VBoxContainer" parent="."]
+offset_left = 131.0
+offset_top = 169.0
+offset_right = 171.0
+offset_bottom = 209.0
+
+[node name="Choice1" type="Button" parent="ChoiceContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Choice2")
+focus_neighbor_bottom = NodePath("../Choice2")
+
+[node name="Choice2" type="Button" parent="ChoiceContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Choice1")
+focus_neighbor_bottom = NodePath("../Choice1")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="ChoiceContainer/Choice1" to="." method="_on_choice_1_pressed"]
+[connection signal="pressed" from="ChoiceContainer/Choice2" to="." method="_on_choice_2_pressed"]

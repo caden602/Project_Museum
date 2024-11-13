@@ -10,6 +10,7 @@ radius = 5.0
 radius = 8.06226
 
 [node name="Player" type="CharacterBody2D"]
+process_mode = 1
 script = ExtResource("1_gqfxu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

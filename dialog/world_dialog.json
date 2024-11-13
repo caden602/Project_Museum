@@ -8,8 +8,16 @@
 		"I used to do a lot of traveling."
 	],
 	"ghost": [
-		"Wanna hear a joke?",
+		"Wanna hear a joke?\t"
+	],
+	"ghost1": [
 		"What did the ghost order at the bar?",
 		"BOOZE!"
+	],
+	"ghost2": [
+		"Boo okay bye"
+	],
+	"ghost.1": [
+		"Yes\nNo"
 	]
 }
