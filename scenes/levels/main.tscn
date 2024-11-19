@@ -936,7 +936,6 @@ position = Vector2(33.5, 237.5)
 shape = SubResource("RectangleShape2D_j6h7x")
 
 [node name="DialogPlayer" parent="." instance=ExtResource("3_lwolx")]
-visible = false
 scene_text_file = "res://dialog/world_dialog.json"
 
 [node name="Ghost" parent="." instance=ExtResource("3_ad10v")]

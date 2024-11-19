@@ -2,6 +2,13 @@ extends CanvasLayer
 
 @export_file("*json") var scene_text_file: String
 
+@onready var background = $Background
+@onready var text_label = $TextLabel
+@onready var timer = $Timer
+@onready var choice_container = $ChoiceContainer
+@onready var choice1 = $ChoiceContainer/Choice1
+@onready var choice2 = $ChoiceContainer/Choice2
+
 var scene_text: Dictionary = {}
 var selected_text: Array = []
 var in_progress: bool = false
@@ -11,21 +18,21 @@ var choice: bool = false
 var choice_index: String = '1'
 var textKey: String = ''
 var baseKey: String = ''
-var first_run: bool = false
+var current_state = State.FIRST_RUN
 
-@onready var background = $Background
-@onready var text_label = $TextLabel
-@onready var timer = $Timer
-@onready var choice_container = $ChoiceContainer
-@onready var choice1 = $ChoiceContainer/Choice1
-@onready var choice2 = $ChoiceContainer/Choice2
+enum State {
+	FIRST_RUN,
+	RUNNING,
+	PLAYER_CHOICE
+}
 
 func _ready():
 	background.visible = false
 	scene_text = load_scene_text()
 	SignalBus.connect("display_dialog", Callable(self, "on_display_dialog"))
+	current_state == State.FIRST_RUN
 	choice_container.hide()
-	first_run = true
+	ratio = 0
 
 
 func load_scene_text():
@@ -39,11 +46,17 @@ func show_text():
 	timer.start()
 	text_label.text = selected_text.front()
 	
+func _input(event):
+	if current_state == State.RUNNING and (event.is_action_pressed("space")):
+		next_line()
+
 func next_line():
 	timer.start()
-	selected_text.pop_front()
+	print(selected_text)
 	if selected_text.size() > 0:
+		selected_text.pop_front()
 		ratio = 0
+		timer.stop()
 	else:
 		finish()
 
@@ -55,9 +68,9 @@ func finish():
 	timer.stop()
 	
 func on_display_dialog(text_key):
-	if (first_run):
+	if (current_state == State.FIRST_RUN):
 		baseKey = text_key
-	first_run = false
+	current_state == State.RUNNING
 	textKey = text_key
 	index = 0
 
@@ -74,19 +87,22 @@ func on_display_dialog(text_key):
 func _on_timer_timeout():
 	ratio += 0.1
 	text_label.visible_ratio = ratio
-	show_text()
-	if (ratio >= 1):
-		timer.stop()
-		if contains_newline(selected_text.front()):
-			choice_container.show()
-			choice1.grab_focus()
-			textKey = calculate_choice(choice_index)
-			on_display_dialog(textKey)
+	if selected_text.size() > 0:
+		show_text()
+		if (ratio >= 1):
+			timer.stop()
+			if contains_newline(selected_text.front()):
+				choice_container.show()
+				choice1.grab_focus()
+				# textKey = calculate_choice(choice_index)
+				on_display_dialog(textKey)
 
 func contains_newline(text: String) -> bool:
 	return "\t" in text
 
-func calculate_option(textKey, options_index) -> String:
+func calculate_option(options_index) -> String:
+	# if current_state == State.PLAYER_CHOICE:
+	# 	return ("%s" % baseKey)
 	return ("%s%d" % [baseKey, options_index])
 
 func calculate_choice(choice_index) -> String:
@@ -94,14 +110,17 @@ func calculate_choice(choice_index) -> String:
 	return textKey
 
 func _on_choice_1_pressed():	
-	textKey = calculate_option(textKey, 1)
+	in_progress = false
+	current_state = State.PLAYER_CHOICE
+	textKey = calculate_option(1)
 	print(textKey)
 	on_display_dialog(textKey)
 	choice_container.hide()
 
 
 func _on_choice_2_pressed():
-	textKey = calculate_option(textKey, 2)
-	print(textKey)
+	in_progress = false
+	current_state = State.PLAYER_CHOICE
+	textKey = calculate_option(2)
 	on_display_dialog(textKey)
 	choice_container.hide()
