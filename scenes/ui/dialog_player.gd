@@ -90,20 +90,23 @@ func _on_timer_timeout():
 	if selected_text.size() > 0:
 		show_text()
 		if (ratio >= 1):
-			timer.stop()
 			if contains_newline(selected_text.front()):
 				choice_container.show()
 				choice1.grab_focus()
-				# textKey = calculate_choice(choice_index)
+				in_progress = false;
+				textKey = calculate_choice(choice_index)
+				print("text", textKey)
 				on_display_dialog(textKey)
+			timer.stop()
 
 func contains_newline(text: String) -> bool:
-	return "\t" in text
+	return "\t" in text	
 
 func calculate_option(options_index) -> String:
-	# if current_state == State.PLAYER_CHOICE:
-	# 	return ("%s" % baseKey)
-	return ("%s%d" % [baseKey, options_index])
+	# Split the string at the '.' and take the first part (before the dot).
+	var base_name = textKey.split(".")[0]
+	# Append '1' to the end of the base name.
+	return ("%s%d" % [base_name, options_index])
 
 func calculate_choice(choice_index) -> String:
 	textKey += "." + choice_index
