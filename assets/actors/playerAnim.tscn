@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://jyf5e8p5250u"]
 
-[ext_resource type="Texture2D" uid="uid://d35d6jdmkkgfs" path="res://assets/tilesets/mainChar.png" id="1_v61fc"]
+[ext_resource type="Texture2D" uid="uid://d35d6jdmkkgfs" path="res://assets/tilesets/mainChar.png" id="1_mx7na"]
 
 [sub_resource type="Animation" id="Animation_plmu7"]
 resource_name = "stand_right"
@@ -171,7 +171,7 @@ _data = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_v61fc")
+texture = ExtResource("1_mx7na")
 hframes = 24
 vframes = 11
 frame = 1
