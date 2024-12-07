@@ -34,12 +34,17 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_2cwaw"]
 script = ExtResource("2_g0w5a")
 scene = ExtResource("6_80tmp")
-overrides = {}
+overrides = {
+"box_size": "Vector2(250, 50)",
+"text_size": "5.0"
+}
 
 [sub_resource type="Resource" id="Resource_diej0"]
 script = ExtResource("2_g0w5a")
 scene = ExtResource("8_ibbbu")
-overrides = {}
+overrides = {
+"font_size_custom": "5.0"
+}
 
 [sub_resource type="Resource" id="Resource_rldfp"]
 script = ExtResource("2_g0w5a")
@@ -49,7 +54,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_73bdb"]
 script = ExtResource("2_g0w5a")
 scene = ExtResource("10_3suxg")
-overrides = {}
+overrides = {
+"font_custom_size": "5.0"
+}
 
 [resource]
 script = ExtResource("11_xowxa")
@@ -67,4 +74,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("2_g0w5a")]([])
-metadata/_latest_layer = ""
+metadata/_latest_layer = "15"
