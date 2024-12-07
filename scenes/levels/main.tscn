@@ -2,15 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://q85t8tsv1jaj" path="res://assets/actors/player.tscn" id="1_rrj3h"]
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://c5xselpma78xk" path="res://characters/ghost/ghost.tscn" id="3_ad10v"]
-[ext_resource type="Texture2D" uid="uid://b45o20w88ij5w" path="res://assets/tilesets/Tileset.png" id="6_2m8v6"]
-[ext_resource type="PackedScene" uid="uid://cl6locf5gp7lq" path="res://dialog_test.tscn" id="6_k7mwt"]
-[ext_resource type="Texture2D" uid="uid://bhab3ti380j8v" path="res://assets/tilesets/Props.png" id="7_ifqlp"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1iham"]
-texture = ExtResource("6_2m8v6")
-=======
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
 [ext_resource type="PackedScene" uid="uid://c5xselpma78xk" path="res://assets/npc/ghost.tscn" id="3_ad10v"]
 [ext_resource type="PackedScene" uid="uid://cum3uhbgu6q8j" path="res://scenes/ui/dialog_player.tscn" id="3_lwolx"]
@@ -26,7 +17,15 @@ size = Vector2(401, 27)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8rfs"]
 texture = ExtResource("8_5wb3o")
->>>>>>> master
+
+[ext_resource type="PackedScene" uid="uid://c5xselpma78xk" path="res://characters/ghost/ghost.tscn" id="3_ad10v"]
+[ext_resource type="Texture2D" uid="uid://b45o20w88ij5w" path="res://assets/tilesets/Tileset.png" id="6_2m8v6"]
+[ext_resource type="PackedScene" uid="uid://cl6locf5gp7lq" path="res://dialog_test.tscn" id="6_k7mwt"]
+[ext_resource type="Texture2D" uid="uid://bhab3ti380j8v" path="res://assets/tilesets/Props.png" id="7_ifqlp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1iham"]
+texture = ExtResource("6_2m8v6")
+
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -3884,7 +3883,10 @@ texture = ExtResource("1_yhwuu")
 position = Vector2(167, 208)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 26eb0f1454719bf276756af207746feaae2488fc
 [node name="DialogAreaDoor" parent="." instance=ExtResource("2_gwkgc")]
 position = Vector2(167, 0)
 text_key = "door"
@@ -3903,7 +3905,10 @@ shape = SubResource("RectangleShape2D_j6h7x")
 visible = false
 scene_text_file = "res://dialog/world_dialog.json"
 
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> 26eb0f1454719bf276756af207746feaae2488fc
 [node name="Ghost" parent="." instance=ExtResource("3_ad10v")]
 position = Vector2(244, 130)
 
