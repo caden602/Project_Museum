@@ -46,8 +46,8 @@ func run_dialog(dialogue_string):
 	Dialogic.start(dialogue_string)	
 	
 func DialogicSignal(arg: String):
-	#if arg == "exit_pharaoh":
-		#print("Signal Received")
+	if arg == "exit_pharaoh":
+		print("Signal Received")
 	pass
 
 func _on_chat_detection_zone_body_entered(body: Node2D) -> void:

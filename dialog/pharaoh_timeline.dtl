@@ -1,6 +1,57 @@
 join Pharaoh center
-Pharaoh: Hello There
-- Hi
-	Pharaoh: Nice to meet you.
-- Goodbye
-	Pharaoh: Farewell.
+Pharaoh: Ah, greetings young deciple
+Pharaoh: What have come come to bid from your King?
+- Why are you here?
+	Pharaoh: What do you mean? You are standing in my chaimbers.
+	- I meant why are you not asleep?
+		Pharaoh: I...
+		Pharaoh: I cannot rest.
+		Pharaoh: Not easily anymore.
+		join  center
+		Pharaoh: My ahnk... It's missing
+		leave ahnk
+		Pharaoh: I used to sleep with it every night.
+		if {Ahnk} == true:
+			- (Give the Pharaoh his ahnk)
+				[signal arg="exit_pharaoh"]
+		
+		- I will find it for you.
+		- Gee that sucks. Well, see ya later!
+			Pharaoh: Rude!
+	
+	- No, we aren't in Egypt anymore. We're in a museum. You are dead.
+		Pharaoh: I...
+		Pharaoh: Dead?
+		Pharaoh: But there are no stars here? I am not floating amongst the cosmos
+		- Is there something that could be troubling you?
+			Pharaoh: I...
+			Pharaoh: I cannot rest.
+			Pharaoh: Not easily anymore.
+			Pharaoh: My ahnk... It's missing
+			Pharaoh: I used to sleep with it every night.
+			if {Ahnk} == true:
+				- (Give the Pharaoh his ahnk)
+					[signal arg="exit_pharaoh"]
+			
+			- I will find it for you.
+			- Gee that sucks. Well, see ya later!
+				Pharaoh: Rude!
+		- Why would you be in the cosmos?
+			Pharaoh: My people believe that when one dies,
+			Pharaoh: we are to ascend to the heavens and manifest as stars amongst the night sky.
+			- Is there something that could be troubling you?
+				Pharaoh: I...
+				Pharaoh: I cannot rest.
+				Pharaoh: Not easily anymore.
+				Pharaoh: My ahnk... It's missing
+				Pharaoh: I used to sleep with it every night.
+				if {Ahnk} == true:
+					- (Give the Pharaoh his ahnk)
+						[signal arg="exit_pharaoh"]
+				
+				- I will find it for you.
+				- Gee that sucks. Well, see ya later!
+					Pharaoh: Rude!
+			- Welp, I have to go. Flaurencent lighting is almost the same thing.
+
+- Nevermind, your highness.
