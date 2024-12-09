@@ -39,3 +39,6 @@ func apply_friction(amount):
 func apply_movement(accel):
 	velocity += accel
 	velocity = velocity.limit_length(MAX_SPEED)
+	
+func player():
+	pass
