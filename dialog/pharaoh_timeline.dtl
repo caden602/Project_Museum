@@ -1,6 +1,12 @@
 join Pharaoh center
 Pharaoh: Ah, greetings young deciple
 Pharaoh: What have come come to bid from your King?
+if {Ahnk} == true:
+	- (Give Ahnk)
+		Pharaoh: My Ahnk!
+		Pharaoh: Thank you so much!
+		Pharaoh: I can finally rest easy now. I will make sure to save you a seat amongst the stars.
+		[signal arg="exit_pharaoh"]
 - Why are you here?
 	Pharaoh: What do you mean? You are standing in my chaimbers.
 	- I meant why are you not asleep?
@@ -13,11 +19,17 @@ Pharaoh: What have come come to bid from your King?
 		Pharaoh: I used to sleep with it every night.
 		if {Ahnk} == true:
 			- (Give the Pharaoh his ahnk)
+				Thank you very much, I will save a seat for you amongst the stars!
 				[signal arg="exit_pharaoh"]
+			- (Keep ahnk)
+				[end_timeline]
 		
 		- I will find it for you.
+			Pharaoh: Thank you that would be most pleasing!
+			[end_timeline]
 		- Gee that sucks. Well, see ya later!
-			Pharaoh: Rude!
+			Pharaoh: How dare you walk away from a King!
+			[end_timeline]
 	
 	- No, we aren't in Egypt anymore. We're in a museum. You are dead.
 		Pharaoh: I...
@@ -50,8 +62,11 @@ Pharaoh: What have come come to bid from your King?
 						[signal arg="exit_pharaoh"]
 				
 				- I will find it for you.
+					Pharaoh: Thank you that would be most pleasing!
+					[end_timeline]
 				- Gee that sucks. Well, see ya later!
 					Pharaoh: Rude!
 			- Welp, I have to go. Flaurencent lighting is almost the same thing.
+				[end_timeline]
 
 - Nevermind, your highness.

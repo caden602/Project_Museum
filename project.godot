@@ -25,13 +25,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "Painter": "res://characters/Painter.dch",
 "Pharaoh": "res://characters/Pharaoh.dch",
+"Receptionist": "res://characters/Receptionist.dch",
 "ahnk": "res://characters/items/ahnk.dch",
+"sketch_completed": "res://characters/items/sketch_completed.dch",
 "sketch_piece1": "res://characters/items/sketch_piece1.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
 "painter_timeline": "res://dialog/painter_timeline.dtl",
-"pharaoh_timeline": "res://dialog/pharaoh_timeline.dtl"
+"pharaoh_timeline": "res://dialog/pharaoh_timeline.dtl",
+"receptionist_timeline": "res://dialog/receptionist_timeline.dtl"
 }
 glossary/default_case_sensitive=true
 glossary/glossary_files=[]
@@ -58,7 +61,8 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 variables={
-"Ahnk": false
+"Ahnk": false,
+"Sketch": false
 }
 
 [display]

@@ -1,0 +1,56 @@
+join  center
+Receptionist: Hello and welcome to the Museum of Memories!
+Receptionist: Thank you for taking this job on such a short notice...
+Receptionist: Our last security guard, needed... erm.. a vacation!
+- What are you not telling me?
+	Receptionist: Well lately we've been experiencing... well...
+	Receptionist: Some odd things happen at night...
+	Receptionist: I promise you though you are perfectly safe!
+	Receptionist: ha ha...
+	- What do you mean strange things?
+		Receptionist: Well, our last guard reported.. umm... well he saw things
+		- He saw things?
+			label Jump2
+			Receptionist: We seem to have a bit of a ghost problem.
+			Receptionist: But I can assure you!
+			Receptionist: They haven't caused anyone harm.
+			- When did this start?
+				Receptionist: Ever since we received the statue of Gyla.
+				Receptionist: That's when the weird started.
+				label Jump1
+				- Why not just get rid of it?
+					Receptionist: It's a priceless piece
+					Receptionist: We've been fighting to get it here for over a decade
+					Receptionist: The museum is not willing to part with it just yet.
+					jump Jump1
+				- What do you want me to do about it?
+					Receptionist: Well, we've had some artifacts go missing recently
+					Receptionist: We'd like it if you could return them to their places for us.
+					Receptionist: We know they'er still here in the museum
+					Receptionist: Our alarms would have been triggered otherwise
+					- What's missing?
+						Receptionist: Oh you'll know...
+						jump receptionist_leaving
+			- You're funny, ghosts? Yeah right.
+				Receptionist: Suit yourself
+				Receptionist: But don't say I didn't warn you
+				Receptionist: Either way we've had some artifacts go missing.
+				Receptionist: We'd like it if you could return them to their places for us.
+				- What's missing?
+					Receptionist: Oh you'll know...
+					jump receptionist_leaving
+- Safe?
+	jump Jump2
+- Sounds good to me.
+	Receptionist: Excellent!
+	jump receptionist_leaving
+- Happy to be here!
+	Receptionist: One thing I should tell you though...
+	jump Jump2
+label receptionist_leaving
+Receptionist: Well we're all closed up for the night
+Receptionist: I have to go now...
+Receptionist: Good luck!
+Receptionist: Oh and one more thing!
+Receptionist: Don't let the little girl see you!
+[end_timeline]
