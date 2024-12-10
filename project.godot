@@ -25,6 +25,13 @@ window/size/viewport_width=400
 window/size/viewport_height=224
 window/stretch/mode="viewport"
 
+[global_group]
+
+crate_top=""
+crate_right=""
+crate_left=""
+crate_bottom=""
+
 [input]
 
 move_left={
