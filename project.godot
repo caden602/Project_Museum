@@ -27,11 +27,15 @@ directories/dch_directory={
 "Pharaoh": "res://characters/Pharaoh.dch",
 "Receptionist": "res://characters/Receptionist.dch",
 "ahnk": "res://characters/items/ahnk.dch",
+"inventor": "res://characters/Inventor.dch",
 "sketch_completed": "res://characters/items/sketch_completed.dch",
 "sketch_piece1": "res://characters/items/sketch_piece1.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"inventor_timeline": "res://dialog/inventor_timeline.dtl",
+"inventor_timeline2": "res://dialog/inventor_timeline2.dtl",
+"inventor_timeline3": "res://dialog/inventor_timeline3.dtl",
 "painter_timeline": "res://dialog/painter_timeline.dtl",
 "pharaoh_timeline": "res://dialog/pharaoh_timeline.dtl",
 "receptionist_timeline": "res://dialog/receptionist_timeline.dtl"
@@ -62,6 +66,7 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 variables={
 "Ahnk": false,
+"Notebook": false,
 "Sketch": false
 }
 
