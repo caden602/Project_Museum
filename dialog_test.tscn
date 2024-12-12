@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcp2ktvbk7812"]
+
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_ipg2g"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 144.0
+offset_top = 33.0
+offset_right = 266.0
+offset_bottom = 55.0
+script = ExtResource("1_ipg2g")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
