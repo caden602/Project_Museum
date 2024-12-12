@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://pj25qxgayr3p"]
+[gd_scene load_steps=15 format=4 uid="uid://pj25qxgayr3p"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_xbmrp"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="2_88k41"]
-[ext_resource type="Texture2D" uid="uid://h65lnrmut8c7" path="res://icon.svg" id="2_hqh2h"]
 [ext_resource type="Texture2D" uid="uid://nmyjwqdtpbik" path="res://assets/tilesets/ui_glow.png" id="3_5ihh6"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="3_rrxwd"]
+[ext_resource type="Texture2D" uid="uid://f3ad0ovwcbxk" path="res://assets/tilesets/ANKH.png" id="4_6t7lp"]
+[ext_resource type="Script" path="res://ankh.gd" id="4_hlwp5"]
 [ext_resource type="Script" path="res://sprite_2d_2.gd" id="4_kd6ek"]
+[ext_resource type="Texture2D" uid="uid://etfkwmc6tpy3" path="res://assets/tilesets/ankhHighlighted.png" id="6_pkmex"]
+[ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="9_f6jhg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebser"]
 texture = ExtResource("1_xbmrp")
@@ -3292,22 +3295,39 @@ tile_set = SubResource("TileSet_hcx4y")
 
 [node name="ankh" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(-15, 20)
+position = Vector2(-17, 23)
+script = ExtResource("4_hlwp5")
 
 [node name="Sprite2D" type="Sprite2D" parent="ankh"]
 z_index = 1
+texture_filter = 1
 position = Vector2(55, 25)
-scale = Vector2(0.09375, 0.09375)
-texture = ExtResource("2_hqh2h")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_6t7lp")
+
+[node name="highlighted" type="Sprite2D" parent="ankh"]
+z_index = 1
+texture_filter = 1
+position = Vector2(56, 24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_pkmex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ankh"]
 position = Vector2(59.5, 36.5)
 shape = SubResource("RectangleShape2D_040h5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ankh"]
+[node name="glow" type="Sprite2D" parent="ankh"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.286275)
 z_index = 1
-position = Vector2(55, 25)
+position = Vector2(56, 23)
 scale = Vector2(0.00875, 0.00875)
 texture = ExtResource("3_5ihh6")
 script = ExtResource("4_kd6ek")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("9_f6jhg")]
+z_index = 1
+position = Vector2(82, 85)
+
+[connection signal="body_entered" from="ankh" to="ankh" method="_on_body_entered"]
+[connection signal="body_exited" from="ankh" to="ankh" method="_on_body_exited"]

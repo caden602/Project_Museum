@@ -3882,9 +3882,6 @@ z_index = 1
 position = Vector2(-492, -39)
 script = ExtResource("2_463cb")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-404, -2)
-
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
@@ -3894,6 +3891,16 @@ texture = ExtResource("1_yhwuu")
 [node name="playerSprite" parent="." instance=ExtResource("4_6i6im")]
 z_index = 1
 position = Vector2(-359, -71)
+
+[node name="Camera2D" type="Camera2D" parent="playerSprite"]
+position = Vector2(-3, 6)
+scale = Vector2(0.254, 0.245)
+zoom = Vector2(2, 2)
+limit_left = -1500
+limit_top = -120
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_rrj3h")]
 position = Vector2(167, 208)

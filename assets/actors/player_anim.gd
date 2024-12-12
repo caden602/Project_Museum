@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 200.0  # Speed of the player
+var speed = 100.0  # Speed of the player
 var crate: CharacterBody2D
 var crate_direction = "up"
 var talking_to_intro = false
@@ -17,19 +17,19 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("move_left"):
 		if int(delta)%10 == 0:
-			movement.x -= 0.5
+			movement.x -= 0.1
 		$AnimationPlayer.play("walk_left")
 	if Input.is_action_pressed("move_right"):
 		if int(delta)%10 == 0:
-			movement.x += 0.5
+			movement.x += 0.1
 		$AnimationPlayer.play("walk_right")
 	if Input.is_action_pressed("move_up"):
 		if int(delta)%10 == 0:
-			movement.y -= 0.5
+			movement.y -= 0.1
 		$AnimationPlayer.play("walk_back")
 	if Input.is_action_pressed("move_down"):
 		if int(delta)%10 == 0:
-			movement.y += 0.5
+			movement.y += 0.1
 		$AnimationPlayer.play("walk_forward")
  # Normalize and apply speed
 	if movement != Vector2.ZERO:
@@ -46,16 +46,16 @@ func _physics_process(delta):
 	if is_colliding_with_crate():
 		if Input.is_action_pressed("move_left") and crate_direction == "left":
 			if int(delta)%10 == 0:
-				crate_movement.x -= 0.5
+				crate_movement.x -= 0.1
 		if Input.is_action_pressed("move_right") and crate_direction == "right":
 			if int(delta)%10 == 0:
-				crate_movement.x += 0.5
+				crate_movement.x += 0.1
 		if Input.is_action_pressed("move_up") and crate_direction == "up":
 			if int(delta)%10 == 0:
-				crate_movement.y -= 0.5
+				crate_movement.y -= 0.1
 		if Input.is_action_pressed("move_down") and crate_direction == "down":
 			if int(delta)%10 == 0:
-				crate_movement.y += 0.5
+				crate_movement.y += 0.1
 		if crate_movement != Vector2.ZERO:
 			crate_movement = crate_movement.normalized() * speed
 
@@ -68,9 +68,9 @@ func _physics_process(delta):
 		talking_to_intro = true
 		var intro_guy = get_parent().get_node("introGuy")
 		intro_guy.active()
-	else:
-		var intro_guy = get_parent().get_node("introGuy")
-		intro_guy.inactive()
+	# else:
+		# var intro_guy = get_parent().get_node("introGuy")
+		# intro_guy.inactive()
 
 
 # Check for a collision with another character manually
