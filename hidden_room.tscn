@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_xxedi"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="2_vv2cx"]
-[ext_resource type="Texture2D" uid="uid://h65lnrmut8c7" path="res://icon.svg" id="3_b4lfu"]
+[ext_resource type="Texture2D" uid="uid://c7ln2kx5mugif" path="res://icon.svg" id="3_b4lfu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fp2bm"]
 texture = ExtResource("1_xxedi")
