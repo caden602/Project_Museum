@@ -1,4 +1,6 @@
 join ghost left
-Hello
-Bye.
-- 
+ghost: Hello
+- Goodbye
+	ghost: Bye
+- Hi
+	ghost: Boo!
