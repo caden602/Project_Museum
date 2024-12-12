@@ -1,24 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://jyf5e8p5250u"]
+[gd_scene load_steps=14 format=3 uid="uid://jyf5e8p5250u"]
 
-[ext_resource type="Texture2D" uid="uid://d35d6jdmkkgfs" path="res://assets/tilesets/mainChar.png" id="1_v61fc"]
-
-[sub_resource type="Animation" id="Animation_plmu7"]
-resource_name = "stand_right"
-length = 1.0
-loop_mode = 1
-step = 0.333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 2, 3]
-}
+[ext_resource type="Script" path="res://assets/actors/player_anim.gd" id="1_k8ho1"]
+[ext_resource type="Texture2D" uid="uid://d35d6jdmkkgfs" path="res://assets/tilesets/mainChar.png" id="1_mx7na"]
 
 [sub_resource type="Animation" id="Animation_cu3np"]
 length = 0.001
@@ -35,8 +18,8 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_0e657"]
-resource_name = "stand_left"
+[sub_resource type="Animation" id="Animation_2cspo"]
+resource_name = "stand_back"
 loop_mode = 1
 step = 0.333333
 tracks/0/type = "value"
@@ -49,7 +32,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [13, 14, 15]
+"values": [7, 8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_an2w1"]
@@ -69,8 +52,8 @@ tracks/0/keys = {
 "values": [19, 20, 21]
 }
 
-[sub_resource type="Animation" id="Animation_2cspo"]
-resource_name = "stand_back"
+[sub_resource type="Animation" id="Animation_0e657"]
+resource_name = "stand_left"
 loop_mode = 1
 step = 0.333333
 tracks/0/type = "value"
@@ -83,7 +66,58 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [7, 8, 9]
+"values": [13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_plmu7"]
+resource_name = "stand_right"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_pqdb7"]
+resource_name = "walk_back"
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [66, 67, 68, 69, 70, 71]
+}
+
+[sub_resource type="Animation" id="Animation_yxks2"]
+resource_name = "walk_front"
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [54, 55, 56, 57, 58, 59]
 }
 
 [sub_resource type="Animation" id="Animation_j7jcv"]
@@ -120,40 +154,6 @@ tracks/0/keys = {
 "values": [48, 49, 50, 51, 52, 53]
 }
 
-[sub_resource type="Animation" id="Animation_yxks2"]
-resource_name = "walk_front"
-loop_mode = 1
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [54, 55, 56, 57, 58, 59]
-}
-
-[sub_resource type="Animation" id="Animation_pqdb7"]
-resource_name = "walk_back"
-loop_mode = 1
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [66, 67, 68, 69, 70, 71]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kr7qs"]
 _data = {
 "RESET": SubResource("Animation_cu3np"),
@@ -167,11 +167,15 @@ _data = {
 "walk_right": SubResource("Animation_ydg7q")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnwvx"]
+radius = 5.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_k8ho1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_v61fc")
+texture = ExtResource("1_mx7na")
 hframes = 24
 vframes = 11
 frame = 1
@@ -180,3 +184,8 @@ frame = 1
 libraries = {
 "": SubResource("AnimationLibrary_kr7qs")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+scale = Vector2(1, 0.7)
+shape = SubResource("CircleShape2D_nnwvx")

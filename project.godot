@@ -76,6 +76,7 @@ window/size/viewport_width=400
 window/size/viewport_height=224
 window/stretch/mode="viewport"
 
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
@@ -83,6 +84,14 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [global_group]
 
 player=""
+
+[global_group]
+
+crate_top=""
+crate_right=""
+crate_left=""
+crate_bottom=""
+
 
 [input]
 
