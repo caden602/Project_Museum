@@ -57,6 +57,7 @@ if {Ahnk} == true:
 				Pharaoh: Not easily anymore.
 				Pharaoh: My ahnk... It's missing
 				Pharaoh: I used to sleep with it every night.
+				Pharaoh: It might be behind one of the locked doors.
 				if {Ahnk} == true:
 					- (Give the Pharaoh his ahnk)
 						[signal arg="exit_pharaoh"]

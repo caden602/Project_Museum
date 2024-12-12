@@ -1,4 +1,7 @@
 join inventor center
+if {InventorTalked} == true:
+	inventor: Will you please stand on my PRESSY-THINGY-DOWNIE?
+	[end_timeline]
 inventor: Greetings student!
 inventor: I say. Would you mind helping me finalize my latest invention?
 - Sure.
@@ -14,6 +17,7 @@ inventor: I say. Would you mind helping me finalize my latest invention?
 		label Jump1
 		inventor: Anyways...
 		inventor: If you will be so kind as to go stand on that red PRESSY-THINGY-DOWNIE?
+		set {InventorTalked} = true
 	- Wow that is very cool
 		inventor: I know!
 		inventor: I am somewhat of a genius it is true

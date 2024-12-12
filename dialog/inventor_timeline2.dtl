@@ -1,4 +1,5 @@
 join inventor center
+set {InventorTalked} = false
 inventor: That's it!
 inventor: Great work! You know some day you might become as briliant as me!
 - Ughh, thanks?
@@ -15,7 +16,9 @@ inventor: This notebook contained all of my other BRILLIANT ideas.
 inventor: If you find it hidden behind one of my several puzzles, would you please return it to me?
 - Sure
 	inventor: Thank you! It would mean a great deal to me.
+	set {InventorTalked} = true
 	[end_timeline]
 - No
 	inventor: You're probably not smart enough anyways...
+	set {InventorTalked} = true
 	[end_timeline]
