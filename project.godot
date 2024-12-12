@@ -62,9 +62,14 @@ window/size/viewport_width=400
 window/size/viewport_height=224
 window/stretch/mode="viewport"
 
-[editor_plugins]
+[global_group]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+crate_top=""
+crate_right=""
+crate_left=""
+crate_bottom=""
+crateObject=""
+introGuy=""
 
 [input]
 

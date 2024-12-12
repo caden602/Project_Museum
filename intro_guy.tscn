@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfcuhjcuy2y1k"]
+
+[ext_resource type="Texture2D" uid="uid://b7ydqoop1o6ue" path="res://assets/tilesets/frontDesk.png" id="1_6mlu7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2358"]
+radius = 15.0333
+
+[sub_resource type="Animation" id="Animation_3hkp4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_kveue"]
+resource_name = "intro_back"
+length = 1.33337
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 8, 9, 11]
+}
+
+[sub_resource type="Animation" id="Animation_phdet"]
+resource_name = "intro_front"
+length = 1.33337
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [18, 20, 21, 23]
+}
+
+[sub_resource type="Animation" id="Animation_nwd0r"]
+resource_name = "intro_left"
+length = 1.33337
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 14, 15, 17]
+}
+
+[sub_resource type="Animation" id="Animation_4a3fv"]
+resource_name = "intro_right"
+length = 1.33337
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_waj0b"]
+_data = {
+"RESET": SubResource("Animation_3hkp4"),
+"intro_back": SubResource("Animation_kveue"),
+"intro_front": SubResource("Animation_phdet"),
+"intro_left": SubResource("Animation_nwd0r"),
+"intro_right": SubResource("Animation_4a3fv")
+}
+
+[node name="introGuy" type="CharacterBody2D" groups=["introGuy"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_6mlu7")
+hframes = 24
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_q2358")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_waj0b")
+}

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2eyvuo1qlux5"]
+
+[ext_resource type="Texture2D" uid="uid://1tchv3coxq0v" path="res://assets/tilesets/painting/paintingPiece3.png" id="1_xk73f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3mxw"]
+size = Vector2(56, 62)
+
+[node name="paintingPiece3" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_xk73f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38, 0)
+shape = SubResource("RectangleShape2D_o3mxw")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5oextbgqk4pq"]
+
+[ext_resource type="Script" path="res://crateNew.gd" id="1_21h7y"]
+[ext_resource type="Texture2D" uid="uid://cav4fvw310k58" path="res://assets/tilesets/crate.png" id="1_50qhl"]
+
+[node name="crate" type="CharacterBody2D" groups=["crateObject"]]
+script = ExtResource("1_21h7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_50qhl")
+
+[node name="collision_top" type="CollisionPolygon2D" parent="." groups=["crate_top"]]
+polygon = PackedVector2Array(-7, -6, 0, 0, 7, -7, -8, -7)
+
+[node name="collision_right" type="CollisionPolygon2D" parent="." groups=["crate_right"]]
+position = Vector2(-0.0750007, -0.322917)
+scale = Vector2(0.96875, 0.854167)
+polygon = PackedVector2Array(0.0774201, 0.378049, 7.30323, 6.23171, 7.30323, -7.81707)
+
+[node name="collision_left" type="CollisionPolygon2D" parent="." groups=["crate_left"]]
+polygon = PackedVector2Array(0, 0, -8, 5, -8, -7)
+
+[node name="collision_bottom" type="CollisionPolygon2D" parent="." groups=["crate_bottom"]]
+polygon = PackedVector2Array(0, 0, -8, 5, 7, 5)
