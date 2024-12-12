@@ -3948,9 +3948,21 @@ position = Vector2(-391, 92)
 
 [node name="Buttons" type="Node2D" parent="."]
 
-[node name="button" parent="Buttons" groups=["button2"] instance=ExtResource("11_lokfv")]
+[node name="button2" parent="Buttons" groups=["button2"] instance=ExtResource("11_lokfv")]
 z_index = 1
 position = Vector2(-445, 102)
+
+[node name="button3" parent="Buttons" groups=["button3"] instance=ExtResource("11_lokfv")]
+z_index = 1
+position = Vector2(-264, 102)
+
+[node name="button4" parent="Buttons" groups=["button4"] instance=ExtResource("11_lokfv")]
+z_index = 1
+position = Vector2(-227, 102)
+
+[node name="button5" parent="Buttons" groups=["button5"] instance=ExtResource("11_lokfv")]
+z_index = 1
+position = Vector2(-209, 102)
 
 [node name="Items" type="Node2D" parent="."]
 
