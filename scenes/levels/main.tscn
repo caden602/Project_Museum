@@ -3935,7 +3935,8 @@ tile_map_data = PackedByteArray("AADb/wYAAAAHAA8AAADe/wcAAAAHAA4AABDs/wYAAAAKAA8
 tile_set = SubResource("TileSet_ciolo")
 
 [node name="Pharaoh" parent="." instance=ExtResource("10_bh2jj")]
-position = Vector2(33, 180)
+z_index = 1
+position = Vector2(53, 99)
 
 [node name="Painter" parent="." instance=ExtResource("10_24do1")]
 z_index = 1
