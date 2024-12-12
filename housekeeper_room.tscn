@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://pj25qxgayr3p"]
+[gd_scene load_steps=15 format=4 uid="uid://c257dbhryddhj"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_xbmrp"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="2_88k41"]
-[ext_resource type="Texture2D" uid="uid://nmyjwqdtpbik" path="res://assets/tilesets/ui_glow.png" id="3_5ihh6"]
+[ext_resource type="Texture2D" uid="uid://nmyjwqdtpbik" path="res://ui_glow.png" id="3_5ihh6"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="3_rrxwd"]
-[ext_resource type="Texture2D" uid="uid://f3ad0ovwcbxk" path="res://assets/tilesets/ANKH.png" id="4_6t7lp"]
+[ext_resource type="Texture2D" uid="uid://f3ad0ovwcbxk" path="res://ANKH.png" id="4_6t7lp"]
 [ext_resource type="Script" path="res://ankh.gd" id="4_hlwp5"]
 [ext_resource type="Script" path="res://sprite_2d_2.gd" id="4_kd6ek"]
-[ext_resource type="Texture2D" uid="uid://etfkwmc6tpy3" path="res://assets/tilesets/ankhHighlighted.png" id="6_pkmex"]
+[ext_resource type="Texture2D" uid="uid://etfkwmc6tpy3" path="res://ankhHighlighted.png" id="6_pkmex"]
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="9_f6jhg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebser"]

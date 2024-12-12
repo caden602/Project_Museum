@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=4 uid="uid://cf5ngwvuv5mcw"]
 
-[ext_resource type="PackedScene" uid="uid://q85t8tsv1jaj" path="res://assets/actors/player.tscn" id="1_rrj3h"]
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
 [ext_resource type="PackedScene" uid="uid://cum3uhbgu6q8j" path="res://scenes/ui/dialog_player.tscn" id="3_lwolx"]
+[ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="4_6i6im"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="7_vi0xy"]
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="8_5wb3o"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="8_dci1m"]
@@ -3868,13 +3868,6 @@ texture_filter = 1
 position = Vector2(200, 112)
 texture = ExtResource("1_yhwuu")
 
-[node name="Player" parent="." instance=ExtResource("1_rrj3h")]
-z_index = 2
-position = Vector2(-418, -29)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, 1)
-
 [node name="DialogAreaDoor" parent="." instance=ExtResource("2_gwkgc")]
 position = Vector2(167, 0)
 text_key = "door"
@@ -3969,5 +3962,9 @@ position = Vector2(-209, 102)
 [node name="Lantern" parent="Items" instance=ExtResource("12_ct1yh")]
 z_index = 1
 position = Vector2(-456, 73)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_6i6im")]
+z_index = 1
+position = Vector2(-419, -44)
 
 [editable path="DialogAreaDoor"]
