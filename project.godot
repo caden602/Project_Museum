@@ -31,6 +31,8 @@ crate_top=""
 crate_right=""
 crate_left=""
 crate_bottom=""
+crateObject=""
+introGuy=""
 
 [input]
 

@@ -1,13 +1,29 @@
-[gd_scene load_steps=18 format=4 uid="uid://cf5ngwvuv5mcw"]
+[gd_scene load_steps=32 format=4 uid="uid://cf5ngwvuv5mcw"]
 
+[ext_resource type="PackedScene" uid="uid://bfcuhjcuy2y1k" path="res://intro_guy.tscn" id="1_0x3vy"]
 [ext_resource type="PackedScene" uid="uid://q85t8tsv1jaj" path="res://assets/actors/player.tscn" id="1_rrj3h"]
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
+[ext_resource type="Script" path="res://intro_guy.gd" id="2_463cb"]
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
 [ext_resource type="PackedScene" uid="uid://c5xselpma78xk" path="res://assets/npc/ghost.tscn" id="3_ad10v"]
 [ext_resource type="PackedScene" uid="uid://cum3uhbgu6q8j" path="res://scenes/ui/dialog_player.tscn" id="3_lwolx"]
+[ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="4_6i6im"]
+[ext_resource type="PackedScene" uid="uid://cc3qs1bhvwppw" path="res://painting_piece_1.tscn" id="6_agmvx"]
+[ext_resource type="PackedScene" uid="uid://btiofcqb3d1if" path="res://painting_piece_2.tscn" id="7_qs04r"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="7_vi0xy"]
+[ext_resource type="Script" path="res://painting_piece_1.gd" id="7_vxbsb"]
+[ext_resource type="PackedScene" uid="uid://b2eyvuo1qlux5" path="res://painting_piece_3.tscn" id="8_4pf43"]
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="8_5wb3o"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="8_dci1m"]
+[ext_resource type="Texture2D" uid="uid://bwffr4v48kxhj" path="res://assets/tilesets/painting/miniLeft.png" id="10_u0dnw"]
+[ext_resource type="Script" path="res://scenes/levels/sprite_2d.gd" id="11_w8isw"]
+[ext_resource type="Texture2D" uid="uid://nmyjwqdtpbik" path="res://assets/tilesets/ui_glow.png" id="12_16jtp"]
+[ext_resource type="Texture2D" uid="uid://crvlllns4calh" path="res://assets/tilesets/painting/miniRight.png" id="12_kcub5"]
+[ext_resource type="Script" path="res://scenes/levels/sprite_2d_2.gd" id="13_6lar2"]
+[ext_resource type="Texture2D" uid="uid://b07jbccjs7tr8" path="res://assets/tilesets/painting/miniMiddle.png" id="13_uxks5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rb062"]
+size = Vector2(82, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
 size = Vector2(31.25, 54.5)
@@ -3861,8 +3877,13 @@ sources/0 = SubResource("TileSetAtlasSource_dty2x")
 [node name="main" type="Node2D"]
 process_mode = 3
 
+[node name="introGuy" parent="." instance=ExtResource("1_0x3vy")]
+z_index = 1
+position = Vector2(-492, -39)
+script = ExtResource("2_463cb")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(200, 112)
+position = Vector2(-404, -2)
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -3870,8 +3891,93 @@ texture_filter = 1
 position = Vector2(200, 112)
 texture = ExtResource("1_yhwuu")
 
+[node name="playerSprite" parent="." instance=ExtResource("4_6i6im")]
+z_index = 1
+position = Vector2(-359, -71)
+
 [node name="Player" parent="." instance=ExtResource("1_rrj3h")]
 position = Vector2(167, 208)
+
+[node name="paintings" type="Node" parent="."]
+
+[node name="paintingPiece1" parent="paintings" instance=ExtResource("6_agmvx")]
+z_index = 1
+position = Vector2(-560, -102)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("7_vxbsb")
+
+[node name="paintingPiece2" parent="paintings" instance=ExtResource("7_qs04r")]
+z_index = 1
+position = Vector2(-560, -102)
+scale = Vector2(0.25, 0.25)
+
+[node name="paintingPiece3" parent="paintings" instance=ExtResource("8_4pf43")]
+z_index = 1
+position = Vector2(-560, -102)
+scale = Vector2(0.25, 0.25)
+
+[node name="miniLeft" type="Area2D" parent="paintings"]
+z_index = 1
+position = Vector2(7, 6)
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="paintings/miniLeft"]
+texture_filter = 1
+texture = ExtResource("10_u0dnw")
+script = ExtResource("11_w8isw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paintings/miniLeft"]
+position = Vector2(7, 20)
+shape = SubResource("RectangleShape2D_rb062")
+
+[node name="Sprite2D2" type="Sprite2D" parent="paintings/miniLeft"]
+self_modulate = Color(1, 1, 1, 0.286275)
+position = Vector2(-28, -8)
+scale = Vector2(0.027, 0.0285714)
+texture = ExtResource("12_16jtp")
+script = ExtResource("13_6lar2")
+
+[node name="miniRight" type="Area2D" parent="paintings"]
+z_index = 1
+position = Vector2(-3, 6)
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="paintings/miniRight"]
+texture_filter = 1
+position = Vector2(252, 408)
+texture = ExtResource("12_kcub5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paintings/miniRight"]
+position = Vector2(252, 408)
+shape = SubResource("RectangleShape2D_rb062")
+
+[node name="Sprite2D2" type="Sprite2D" parent="paintings/miniRight"]
+self_modulate = Color(1, 1, 1, 0.286275)
+position = Vector2(257.429, 399)
+scale = Vector2(0.0372857, 0.0378571)
+texture = ExtResource("12_16jtp")
+script = ExtResource("13_6lar2")
+
+[node name="miniMiddle" type="Area2D" parent="paintings"]
+z_index = 1
+position = Vector2(-421, -108)
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="paintings/miniMiddle"]
+texture_filter = 1
+position = Vector2(252, 408)
+texture = ExtResource("13_uxks5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paintings/miniMiddle"]
+position = Vector2(228, 376)
+shape = SubResource("RectangleShape2D_rb062")
+
+[node name="Sprite2D2" type="Sprite2D" parent="paintings/miniMiddle"]
+self_modulate = Color(1, 1, 1, 0.286275)
+position = Vector2(244, 408)
+scale = Vector2(0.0342857, 0.0342857)
+texture = ExtResource("12_16jtp")
+script = ExtResource("13_6lar2")
 
 [node name="DialogAreaDoor" parent="." instance=ExtResource("2_gwkgc")]
 position = Vector2(167, 0)

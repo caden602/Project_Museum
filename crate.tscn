@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://crateNew.gd" id="1_21h7y"]
 [ext_resource type="Texture2D" uid="uid://cav4fvw310k58" path="res://assets/tilesets/crate.png" id="1_50qhl"]
 
-[node name="crate" type="CharacterBody2D"]
+[node name="crate" type="CharacterBody2D" groups=["crateObject"]]
 script = ExtResource("1_21h7y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
