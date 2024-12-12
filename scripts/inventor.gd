@@ -39,11 +39,11 @@ func _ready():
 	
 func _process(delta):
 	if player_in_area:
-		if Input.is_action_just_pressed("e") and !Dialogic.VAR.inventor_talked:
+		if Input.is_action_just_pressed("e") and !Dialogic.VAR.get('InventorTalked'):
 			run_dialog("inventor_timeline")
 			SignalBus.emit_signal("inventor_talked", true)
-		if Input.is_action_just_pressed("e") and Dialogic.VAR.inventor_talked:
-			run_dialog("inventor_talked3")
+		if Input.is_action_just_pressed("e") and Dialogic.VAR.get('InventorTalked'):
+			run_dialog("inventor_timeline3")
 
 func run_dialog(dialogue_string):
 	is_chatting = true

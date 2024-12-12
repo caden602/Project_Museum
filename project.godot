@@ -30,7 +30,8 @@ directories/dch_directory={
 "inventor": "res://characters/Inventor.dch",
 "sketch_completed": "res://characters/items/sketch_completed.dch",
 "sketch_piece1": "res://characters/items/sketch_piece1.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
+"upstairs_key": "res://characters/items/upstairs_key.dch"
 }
 directories/dtl_directory={
 "inventor_timeline": "res://dialog/inventor_timeline.dtl",
@@ -68,7 +69,8 @@ variables={
 "Ahnk": false,
 "InventorTalked": false,
 "Notebook": false,
-"Sketch": false
+"Sketch": false,
+"UpstairsKey": false
 }
 
 [display]
