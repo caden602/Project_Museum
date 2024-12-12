@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3nwmth1iq6qx"]
+
+[ext_resource type="Texture2D" uid="uid://c7ln2kx5mugif" path="res://icon.svg" id="1_0ybad"]
+[ext_resource type="Script" path="res://scripts/pharaoh.gd" id="1_mb551"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqq0i"]
+radius = 20.0
+
+[node name="Pharaoh" type="CharacterBody2D"]
+script = ExtResource("1_mb551")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.152344, 0.160156)
+texture = ExtResource("1_0ybad")
+
+[node name="ChatDetectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionZone"]
+shape = SubResource("CircleShape2D_yqq0i")
+
+[connection signal="body_entered" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_entered"]
+[connection signal="body_exited" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_exited"]

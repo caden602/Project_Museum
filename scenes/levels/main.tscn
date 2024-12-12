@@ -1,20 +1,20 @@
-[gd_scene load_steps=19 format=4 uid="uid://cf5ngwvuv5mcw"]
+[gd_scene load_steps=21 format=4 uid="uid://cf5ngwvuv5mcw"]
 
 [ext_resource type="PackedScene" uid="uid://q85t8tsv1jaj" path="res://assets/actors/player.tscn" id="1_rrj3h"]
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
-[ext_resource type="PackedScene" uid="uid://c5xselpma78xk" path="res://assets/npc/ghost.tscn" id="3_ad10v"]
 [ext_resource type="PackedScene" uid="uid://cum3uhbgu6q8j" path="res://scenes/ui/dialog_player.tscn" id="3_lwolx"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="7_vi0xy"]
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="8_5wb3o"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="8_dci1m"]
-[ext_resource type="PackedScene" uid="uid://cuasaudjk8twh" path="res://assets/actors/spririt1.tscn" id="9_6lopd"]
+[ext_resource type="PackedScene" uid="uid://kc5webnw8vbm" path="res://characters/painter.tscn" id="10_24do1"]
+[ext_resource type="PackedScene" uid="uid://c3nwmth1iq6qx" path="res://characters/pharaoh.tscn" id="10_bh2jj"]
+[ext_resource type="PackedScene" uid="uid://cy1wwt1pwr2qp" path="res://button.tscn" id="11_lokfv"]
+[ext_resource type="PackedScene" uid="uid://cc60augqt45l6" path="res://characters/inventor.tscn" id="11_wglk0"]
+[ext_resource type="PackedScene" uid="uid://dlukxftvlq6sd" path="res://scenes/items/lantern.tscn" id="12_ct1yh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
 size = Vector2(31.25, 54.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6h7x"]
-size = Vector2(401, 27)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8rfs"]
 texture = ExtResource("8_5wb3o")
@@ -3862,9 +3862,6 @@ sources/0 = SubResource("TileSetAtlasSource_dty2x")
 [node name="main" type="Node2D"]
 process_mode = 3
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(200, 112)
-
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
@@ -3872,7 +3869,11 @@ position = Vector2(200, 112)
 texture = ExtResource("1_yhwuu")
 
 [node name="Player" parent="." instance=ExtResource("1_rrj3h")]
-position = Vector2(167, 208)
+z_index = 2
+position = Vector2(-418, -29)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 1)
 
 [node name="DialogAreaDoor" parent="." instance=ExtResource("2_gwkgc")]
 position = Vector2(167, 0)
@@ -3884,16 +3885,9 @@ visible = false
 position = Vector2(-76, -38)
 shape = SubResource("RectangleShape2D_oeyrb")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DialogAreaDoor"]
-position = Vector2(33.5, 237.5)
-shape = SubResource("RectangleShape2D_j6h7x")
-
 [node name="DialogPlayer" parent="." instance=ExtResource("3_lwolx")]
 visible = false
 scene_text_file = "res://dialog/world_dialog.json"
-
-[node name="Ghost" parent="." instance=ExtResource("3_ad10v")]
-position = Vector2(244, 130)
 
 [node name="tilemaps" type="Node" parent="."]
 
@@ -3925,7 +3919,7 @@ tile_set = SubResource("TileSet_5xpvh")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="tilemaps"]
 texture_filter = 1
-tile_map_data = PackedByteArray("AADh//v/AQAMABoAAADg////AQABAA0AAADi//z/AQALABoAAADg//v/AQAHABwAAADg//z/AQAHAB0AAADr//v/AQAHABwAAADr//z/AQAHAB0AAADg/wYAAQALAA0AAADg/wcAAQALAA4AAADs/wMAAQAPABkAAADs/wQAAQAPABoAAADt/wMAAQAQABkAAADt/wQAAQAQABoAAAACAAIAAQAAAA4AAAACAAMAAQAAAA8AAAABAPv/AQAOABAAAAD6//z/AQAHABwAABD6//3/AQAHAB0AABDw/wUAAQANABIAAADb/wIAAQANABIAAAA=")
+tile_map_data = PackedByteArray("AADh//v/AQAMABoAAADg////AQABAA0AAADi//z/AQALABoAAADg//v/AQAHABwAAADg//z/AQAHAB0AAADr//v/AQAHABwAAADr//z/AQAHAB0AAADg/wYAAQALAA0AAADg/wcAAQALAA4AAADs/wMAAQAPABkAAADs/wQAAQAPABoAAADt/wMAAQAQABkAAADt/wQAAQAQABoAAAACAAIAAQAAAA4AAAACAAMAAQAAAA8AAAABAPv/AQAOABAAAAD6//z/AQAHABwAABD6//3/AQAHAB0AABDw/wUAAQANABIAAADb/wIAAQANABIAAADj/wQAAQAIAA8AAAA=")
 tile_set = SubResource("TileSet_5xpvh")
 
 [node name="TileMapLayerShifted0" type="TileMapLayer" parent="tilemaps"]
@@ -3940,7 +3934,26 @@ position = Vector2(14, -2)
 tile_map_data = PackedByteArray("AADb/wYAAAAHAA8AAADe/wcAAAAHAA4AABDs/wYAAAAKAA8AAADp////AAAKAA0AAADz/wQAAAAMABoAAAD6/wMAAAAHAAsAAAD7/wMAAAAIAAsAAAD+/wAAAAAIAAsAAAACAAMAAAAAABkAABD9//v/AAAOABoAAAADAP3/AAALABoAAAD+/wUAAAAAABoAAAD+/wYAAAAAABsAAAD9/wAAAAAHAAsAAAABAAIAAAANAA8AAAD8//3/AAAKAA8AAAA=")
 tile_set = SubResource("TileSet_ciolo")
 
-[node name="spririt1" parent="." instance=ExtResource("9_6lopd")]
-position = Vector2(156, 130)
+[node name="Pharaoh" parent="." instance=ExtResource("10_bh2jj")]
+position = Vector2(33, 180)
+
+[node name="Painter" parent="." instance=ExtResource("10_24do1")]
+position = Vector2(86, 179)
+
+[node name="Inventor" parent="." instance=ExtResource("11_wglk0")]
+z_index = 1
+position = Vector2(-391, 92)
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="button" parent="Buttons" groups=["button2"] instance=ExtResource("11_lokfv")]
+z_index = 1
+position = Vector2(-445, 102)
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Lantern" parent="Items" instance=ExtResource("12_ct1yh")]
+z_index = 1
+position = Vector2(-456, 73)
 
 [editable path="DialogAreaDoor"]
