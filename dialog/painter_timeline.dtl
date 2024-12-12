@@ -1,13 +1,16 @@
 join Painter center
 Painter: Ah, hello there young artist!
 if {Sketch} == true:
-	- I found your sketch! (Give Sketch)
+	- I found your painting! (Give Painting)
 		join sketch_completed center
 		Painter: How wonderful!
 		leave sketch_completed
-		Painter: My lovely mother oh how I remember her now.
-		Painter: Thank you, with this I believe I can rest now.
+		join upstairs_key center
+		Painter: Here is the key I promised you
+		leave upstairs_key
+		set {UpstairsKey} = true
 		[signal arg="exit_painter"]
+		[end_timeline]
 - Who are you?
 	Painter: Me?
 	Painter: I am...
@@ -34,8 +37,11 @@ if {Sketch} == true:
 					join sketch_piece1 center
 					Painter: I found a pice of it but I'm afraid the rest are still missing.
 					leave sketch_piece1
+					join upstairs_key center 
+					Painter: If you find the pices of my painting, I'll give you this key!
+					leave upstairs_key
 					label Jump1
-					- I'll find the rest of your missing sketch!
+					- I'll find the rest of your missing painting!
 						Painter: Oh thank you! This would mean the world to me!
 					- What little girl?
 						Painter: Well that I'm not quite sure...
@@ -70,7 +76,7 @@ if {Sketch} == true:
 			Painter: I found a pice of it but I'm afraid the rest are still missing.
 			leave sketch_piece1
 			label Jump2
-			- I'll find the rest of your missing sketch!
+			- I'll find the rest of your missing painting!
 				Painter: Oh thank you! This would mean the world to me!
 			- What little girl?
 				Painter: Well that I'm not quite sure...
