@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
 [ext_resource type="Script" path="res://intro_guy.gd" id="2_463cb"]
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
-[ext_resource type="PackedScene" uid="uid://c5xselpma78xk" path="res://assets/npc/ghost.tscn" id="3_ad10v"]
 [ext_resource type="PackedScene" uid="uid://cum3uhbgu6q8j" path="res://scenes/ui/dialog_player.tscn" id="3_lwolx"]
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="4_6i6im"]
 [ext_resource type="PackedScene" uid="uid://cc3qs1bhvwppw" path="res://painting_piece_1.tscn" id="6_agmvx"]
@@ -27,9 +26,6 @@ size = Vector2(82, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
 size = Vector2(31.25, 54.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6h7x"]
-size = Vector2(401, 27)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8rfs"]
 texture = ExtResource("8_5wb3o")
@@ -3877,6 +3873,7 @@ sources/0 = SubResource("TileSetAtlasSource_dty2x")
 [node name="main" type="Node2D"]
 process_mode = 3
 
+
 [node name="introGuy" parent="." instance=ExtResource("1_0x3vy")]
 z_index = 1
 position = Vector2(-492, -39)
@@ -3896,7 +3893,11 @@ z_index = 1
 position = Vector2(-359, -71)
 
 [node name="Player" parent="." instance=ExtResource("1_rrj3h")]
-position = Vector2(167, 208)
+z_index = 2
+position = Vector2(-418, -29)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 1)
 
 [node name="paintings" type="Node" parent="."]
 
@@ -3989,16 +3990,9 @@ visible = false
 position = Vector2(-76, -38)
 shape = SubResource("RectangleShape2D_oeyrb")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DialogAreaDoor"]
-position = Vector2(33.5, 237.5)
-shape = SubResource("RectangleShape2D_j6h7x")
-
 [node name="DialogPlayer" parent="." instance=ExtResource("3_lwolx")]
 visible = false
 scene_text_file = "res://dialog/world_dialog.json"
-
-[node name="Ghost" parent="." instance=ExtResource("3_ad10v")]
-position = Vector2(244, 130)
 
 [node name="tilemaps" type="Node" parent="."]
 
@@ -4030,7 +4024,7 @@ tile_set = SubResource("TileSet_5xpvh")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="tilemaps"]
 texture_filter = 1
-tile_map_data = PackedByteArray("AADh//v/AQAMABoAAADg////AQABAA0AAADi//z/AQALABoAAADg//v/AQAHABwAAADg//z/AQAHAB0AAADr//v/AQAHABwAAADr//z/AQAHAB0AAADg/wYAAQALAA0AAADg/wcAAQALAA4AAADs/wMAAQAPABkAAADs/wQAAQAPABoAAADt/wMAAQAQABkAAADt/wQAAQAQABoAAAACAAIAAQAAAA4AAAACAAMAAQAAAA8AAAABAPv/AQAOABAAAAD6//z/AQAHABwAABD6//3/AQAHAB0AABDw/wUAAQANABIAAADb/wIAAQANABIAAAA=")
+tile_map_data = PackedByteArray("AADh//v/AQAMABoAAADg////AQABAA0AAADi//z/AQALABoAAADg//v/AQAHABwAAADg//z/AQAHAB0AAADr//v/AQAHABwAAADr//z/AQAHAB0AAADg/wYAAQALAA0AAADg/wcAAQALAA4AAADs/wMAAQAPABkAAADs/wQAAQAPABoAAADt/wMAAQAQABkAAADt/wQAAQAQABoAAAACAAIAAQAAAA4AAAACAAMAAQAAAA8AAAABAPv/AQAOABAAAAD6//z/AQAHABwAABD6//3/AQAHAB0AABDw/wUAAQANABIAAADb/wIAAQANABIAAADj/wQAAQAIAA8AAAA=")
 tile_set = SubResource("TileSet_5xpvh")
 
 [node name="TileMapLayerShifted0" type="TileMapLayer" parent="tilemaps"]
@@ -4044,5 +4038,29 @@ texture_filter = 1
 position = Vector2(14, -2)
 tile_map_data = PackedByteArray("AADb/wYAAAAHAA8AAADe/wcAAAAHAA4AABDs/wYAAAAKAA8AAADp////AAAKAA0AAADz/wQAAAAMABoAAAD6/wMAAAAHAAsAAAD7/wMAAAAIAAsAAAD+/wAAAAAIAAsAAAACAAMAAAAAABkAABD9//v/AAAOABoAAAADAP3/AAALABoAAAD+/wUAAAAAABoAAAD+/wYAAAAAABsAAAD9/wAAAAAHAAsAAAABAAIAAAANAA8AAAD8//3/AAAKAA8AAAA=")
 tile_set = SubResource("TileSet_ciolo")
+
+[node name="Pharaoh" parent="." instance=ExtResource("10_bh2jj")]
+z_index = 1
+position = Vector2(53, 99)
+
+[node name="Painter" parent="." instance=ExtResource("10_24do1")]
+z_index = 1
+position = Vector2(-563, 143)
+
+[node name="Inventor" parent="." instance=ExtResource("11_wglk0")]
+z_index = 1
+position = Vector2(-391, 92)
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="button" parent="Buttons" groups=["button2"] instance=ExtResource("11_lokfv")]
+z_index = 1
+position = Vector2(-445, 102)
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Lantern" parent="Items" instance=ExtResource("12_ct1yh")]
+z_index = 1
+position = Vector2(-456, 73)
 
 [editable path="DialogAreaDoor"]

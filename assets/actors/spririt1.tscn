@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://exlcltnhx1h4"]
+[gd_scene load_steps=14 format=3 uid="uid://cuasaudjk8twh"]
 
 [ext_resource type="Texture2D" uid="uid://wl0onbxr0ciq" path="res://assets/tilesets/spirit1.png" id="1_68yll"]
+[ext_resource type="Script" path="res://scripts/pharaoh.gd" id="1_qqpu7"]
 
 [sub_resource type="Animation" id="Animation_e6ymd"]
 length = 0.001
@@ -225,7 +226,11 @@ _data = {
 "spirit1_walk_right": SubResource("Animation_412wi")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_big6k"]
+radius = 20.0
+
 [node name="spririt1" type="CharacterBody2D"]
+script = ExtResource("1_qqpu7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -238,3 +243,14 @@ frame = 216
 libraries = {
 "": SubResource("AnimationLibrary_2ytys")
 }
+
+[node name="ChatDetectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionZone"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_big6k")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_entered"]
+[connection signal="body_exited" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_exited"]
