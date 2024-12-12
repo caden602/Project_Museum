@@ -5,6 +5,7 @@ var initial_position: Vector2
 
 var is_chatting = false
 var player_in_area = false
+var counter = 0
 
 # Function to start the bobbing effect
 func start_bobbing():
@@ -38,8 +39,11 @@ func _ready():
 	
 func _process(delta):
 	if player_in_area:
-		if Input.is_action_just_pressed("e"):
+		if Input.is_action_just_pressed("e") and !Dialogic.VAR.inventor_talked:
 			run_dialog("inventor_timeline")
+			SignalBus.emit_signal("inventor_talked", true)
+		if Input.is_action_just_pressed("e") and Dialogic.VAR.inventor_talked:
+			run_dialog("inventor_talked3")
 
 func run_dialog(dialogue_string):
 	is_chatting = true

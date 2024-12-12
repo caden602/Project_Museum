@@ -66,6 +66,7 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 variables={
 "Ahnk": false,
+"InventorTalked": false,
 "Notebook": false,
 "Sketch": false
 }
