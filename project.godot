@@ -85,11 +85,13 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [global_group]
 
-player=""
 crate_top=""
 crate_right=""
 crate_left=""
 crate_bottom=""
+crateObject=""
+introGuy=""
+player=""
 button1=""
 button2=""
 button3=""

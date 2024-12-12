@@ -33,6 +33,9 @@ func _on_body_entered(body):
 	if is_in_group("button5") and timer.get_time_left() > 0.0:
 		if button3 and button4:
 			button5 = true
+		
+	if button3 and button4 and button5:
+		SignalBus.emit_signal("door_unlocked")
 
 
 # Optional: Called when a physics body exits the area

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://pj25qxgayr3p"]
+[gd_scene load_steps=15 format=4 uid="uid://c257dbhryddhj"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_xbmrp"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="2_88k41"]

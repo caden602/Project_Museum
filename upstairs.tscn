@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://bgeyi3u1r1fak"]
+[gd_scene load_steps=16 format=4 uid="uid://dcrd2o08gjf7q"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_nutol"]
 [ext_resource type="PackedScene" uid="uid://b5oextbgqk4pq" path="res://crate.tscn" id="1_yvvfi"]
-[ext_resource type="PackedScene" uid="uid://cy1wwt1pwr2qp" path="res://button.tscn" id="3_b87ee"]
+[ext_resource type="PackedScene" uid="uid://bnyu27pb5p1rf" path="res://button.tscn" id="3_b87ee"]
 [ext_resource type="PackedScene" uid="uid://c7anietum2bje" path="res://movingWall.tscn" id="3_te1mp"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="4_c2t01"]
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="4_k3bag"]

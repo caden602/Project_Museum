@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkurwnsvm5uhf"]
+
+[ext_resource type="Script" path="res://scripts/lock.gd" id="1_115ke"]
+[ext_resource type="Texture2D" uid="uid://c7xvxead5jjl4" path="res://assets/sprites/Spritesheets_16x16/Lock_anim_16x16.png" id="1_bvkfh"]
+
+[sub_resource type="Animation" id="Animation_yt1t3"]
+resource_name = "lock_unlocking"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gom30"]
+_data = {
+"lock_unlocking": SubResource("Animation_yt1t3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yakha"]
+
+[node name="Lock" type="Area2D"]
+script = ExtResource("1_115ke")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bvkfh")
+hframes = 13
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_gom30")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yakha")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
