@@ -1,0 +1,21 @@
+join inventor center
+inventor: That's it!
+inventor: Great work! You know some day you might become as briliant as me!
+- Ughh, thanks?
+	jump Jump1
+- ok
+	jump Jump1
+- funny
+	jump Jump1
+label Jump1
+inventor: One more thing young apprentice.
+inventor: I've gone ahead and set up several of these PRESSY-THINGY-DOWNIEs around this building.
+inventor: Unfortunately, in my fit of being a genius, I lost my notebook.
+inventor: This notebook contained all of my other BRILLIANT ideas.
+inventor: If you find it hidden behind one of my several puzzles, would you please return it to me?
+- Sure
+	inventor: Thank you! It would mean a great deal to me.
+	[end_timeline]
+- No
+	inventor: You're probably not smart enough anyways...
+	[end_timeline]

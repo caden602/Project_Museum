@@ -1,0 +1,22 @@
+join inventor center
+inventor: Greetings student!
+inventor: I say. Would you mind helping me finalize my latest invention?
+- Sure.
+	inventor: Great!
+	inventor: You see, I've been working on this new design
+	inventor: This device will revolutionaze the world as we know it!
+	inventor: Its a device that can trigger an action.
+	inventor: The beauty is that it can turn something ON or OFF!
+	inventor: I call it the...
+	inventor: PRESSY-THINGY-DOWNIE
+	- You mean a button?
+		inventor: Don't be silly! Those go on your shirt!
+		label Jump1
+		inventor: Anyways...
+		inventor: If you will be so kind as to go stand on that red PRESSY-THINGY-DOWNIE?
+	- Wow that is very cool
+		inventor: I know!
+		inventor: I am somewhat of a genius it is true
+		jump Jump1
+- Sorry not right now.
+[end_timeline]

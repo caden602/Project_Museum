@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cf5ngwvuv5mcw"]
+[gd_scene load_steps=19 format=4 uid="uid://cf5ngwvuv5mcw"]
 
 [ext_resource type="PackedScene" uid="uid://q85t8tsv1jaj" path="res://assets/actors/player.tscn" id="1_rrj3h"]
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="7_vi0xy"]
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="8_5wb3o"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="8_dci1m"]
+[ext_resource type="PackedScene" uid="uid://cuasaudjk8twh" path="res://assets/actors/spririt1.tscn" id="9_6lopd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
 size = Vector2(31.25, 54.5)
@@ -3938,5 +3939,8 @@ texture_filter = 1
 position = Vector2(14, -2)
 tile_map_data = PackedByteArray("AADb/wYAAAAHAA8AAADe/wcAAAAHAA4AABDs/wYAAAAKAA8AAADp////AAAKAA0AAADz/wQAAAAMABoAAAD6/wMAAAAHAAsAAAD7/wMAAAAIAAsAAAD+/wAAAAAIAAsAAAACAAMAAAAAABkAABD9//v/AAAOABoAAAADAP3/AAALABoAAAD+/wUAAAAAABoAAAD+/wYAAAAAABsAAAD9/wAAAAAHAAsAAAABAAIAAAANAA8AAAD8//3/AAAKAA8AAAA=")
 tile_set = SubResource("TileSet_ciolo")
+
+[node name="spririt1" parent="." instance=ExtResource("9_6lopd")]
+position = Vector2(156, 130)
 
 [editable path="DialogAreaDoor"]

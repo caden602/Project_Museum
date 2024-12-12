@@ -1,0 +1,106 @@
+join Painter center
+Painter: Ah, hello there young artist!
+if {Sketch} == true:
+	- I found your sketch! (Give Sketch)
+		join sketch_completed center
+		Painter: How wonderful!
+		leave sketch_completed
+		Painter: My lovely mother oh how I remember her now.
+		Painter: Thank you, with this I believe I can rest now.
+		[signal arg="exit_painter"]
+- Who are you?
+	Painter: Me?
+	Painter: I am...
+	Painter: Well, I'm a painter! That I know!
+	- You don't remember your name?
+		Painter: Yes..
+		Painter: Of course I do!
+		Painter: My name is... uhhh...
+		Painter: Hmmm...
+		Painter: Come to think of it I can't recall my name
+		Painter: Where am I?
+		- You're in a museum, I think you're dead.
+			Painter: A museum!
+			Painter: Ah my work has finally made it!
+			Painter: Please tell me this is not a museum for modern art?
+			- No, it is not.
+				Painter: Joy!
+				Painter: I've always hated Jackson Pollock. That miserable fool.
+				- Can you rest now?
+					Painter: How could I rest when all of my work is not on display!
+					Painter: My prized illustration
+					Painter: Some mischevious little girl stole my work.
+					Painter: She was crying and in her fit I saw her tear it up!
+					join sketch_piece1 center
+					Painter: I found a pice of it but I'm afraid the rest are still missing.
+					leave sketch_piece1
+					label Jump1
+					- I'll find the rest of your missing sketch!
+						Painter: Oh thank you! This would mean the world to me!
+					- What little girl?
+						Painter: Well that I'm not quite sure...
+						Painter: I see her every now and then...
+						Painter: Roaming the halls at night.
+						Painter: Always crying. She seems lost.
+						Painter: Has a habbit of mucking up the place too.
+						jump Jump1
+					- Good luck finding the rest!
+						Painter: Thanks...
+						Painter: I guess...
+						[end_timeline]
+			- Why yes, it is.
+				Painter: NO!
+				Painter: Now the public will never understand my work.
+				Painter: Please tell me Jackson Pollock isn't in here too
+				- Yes he is
+					Painter: ARGGHHHHH
+					Painter: I swear I will ruin every painting of his!
+				- Nope, haven't seen his work
+					Painter: One thing to be greatful for I guess.
+	- You sound crazy
+		Painter: Well I've been told that for years!
+		Painter: But I guess every artist has a little crazy in them haha
+		- Why are you not asleep?
+			Painter: I've been trying to sleep
+			Painter: But one of my sketches...
+			Painter: My prized illustration
+			Painter: Some mischevious little girl stole my work.
+			Painter: She was crying and in her fit I saw her tear it up!
+			join sketch_piece1 center
+			Painter: I found a pice of it but I'm afraid the rest are still missing.
+			leave sketch_piece1
+			label Jump2
+			- I'll find the rest of your missing sketch!
+				Painter: Oh thank you! This would mean the world to me!
+			- What little girl?
+				Painter: Well that I'm not quite sure...
+				Painter: I see her every now and then...
+				Painter: Roaming the halls at night.
+				Painter: Always crying. She seems lost.
+				Painter: Has a habbit of mucking up the place too.
+				jump Jump2
+			- Good luck finding the rest!
+				Painter: Thanks...
+				Painter: I guess...
+				[end_timeline]
+	- Have you met the Pharaoh?
+		Painter: Pharaoh...
+		Painter: Hmmm...
+		Painter: Ah yes! The Pharaoh!
+		Painter: Come to think of it I saw something of his recently.
+		Painter: A little girl, she stole his ahnk I believe.
+		Painter: Hid it behind one of my paintings
+		- Which painting?
+		Painter: Ummm... Lets see...
+		Painter: It was one with a bear, no wait..
+		Painter: A skull! My painting with a Skull.
+		- Are you sure?
+			Painter: Of course I'm sure!
+			Painter: ...
+			Painter: ... wait, where am I?
+		- Thanks!
+			Painter: Feel free to admire my work!
+			[end_timeline]
+- Sorry, cant talk now.
+	Painter: Farewell!
+	[end_timeline]
