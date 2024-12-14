@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnyu27pb5p1rf"]
+[gd_scene load_steps=9 format=3 uid="uid://cy1wwt1pwr2qp"]
 
 [ext_resource type="Texture2D" uid="uid://bp2pxiufp8kkr" path="res://assets/tilesets/buttonUp.png" id="1_4peh6"]
 [ext_resource type="Script" path="res://button.gd" id="1_fmqtc"]

@@ -33,14 +33,16 @@ func _bob_down():
 func _ready():
 	# Set the initial position to the sprite's starting position
 	initial_position = $Sprite2D.position
-	start_bobbing()
+	#start_bobbing()
 	Dialogic.signal_event.connect(DialogicSignal)
 	
 func _process(delta):
 	if player_in_area:
+		$AnimationPlayer.play("painter_front")
 		if Input.is_action_just_pressed("e"):
 			run_dialog("painter_timeline")
-
+	else:
+		$AnimationPlayer.play("painter_back")
 func run_dialog(dialogue_string):
 	is_chatting = true
 	Dialogic.start(dialogue_string)	
@@ -51,10 +53,10 @@ func DialogicSignal(arg: String):
 	pass
 
 func _on_chat_detection_zone_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.is_in_group("player"):
 		player_in_area = true
 
 
 func _on_chat_detection_zone_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.is_in_group("player"):
 		player_in_area = false

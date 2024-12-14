@@ -1,23 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://kc5webnw8vbm"]
+[gd_scene load_steps=8 format=3 uid="uid://kc5webnw8vbm"]
 
 [ext_resource type="Script" path="res://scripts/painter.gd" id="1_rty7l"]
-[ext_resource type="Texture2D" uid="uid://c7ln2kx5mugif" path="res://icon.svg" id="2_02ic2"]
+[ext_resource type="Texture2D" uid="uid://daknkkkaogyk4" path="res://assets/tilesets/painter.png" id="2_atmj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqq0i"]
 radius = 20.0
+
+[sub_resource type="Animation" id="Animation_v517y"]
+resource_name = "painter_back"
+length = 1.33337
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 8, 9, 11]
+}
+
+[sub_resource type="Animation" id="Animation_3hhqk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_a0muh"]
+resource_name = "painter_front"
+length = 1.33337
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [18, 20, 21, 23]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqfrq"]
+_data = {
+"RESET": SubResource("Animation_3hhqk"),
+"painter_back": SubResource("Animation_v517y"),
+"painter_front": SubResource("Animation_a0muh")
+}
 
 [node name="Painter" type="CharacterBody2D"]
 script = ExtResource("1_rty7l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.152344, 0.160156)
-texture = ExtResource("2_02ic2")
+texture = ExtResource("2_atmj0")
+hframes = 24
+frame = 7
 
 [node name="ChatDetectionZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionZone"]
 shape = SubResource("CircleShape2D_yqq0i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qqfrq")
+}
 
 [connection signal="body_entered" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_entered"]
 [connection signal="body_exited" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_exited"]

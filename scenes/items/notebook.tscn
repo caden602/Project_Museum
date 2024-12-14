@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnleh6cbnmbn0"]
+
+[ext_resource type="Texture2D" uid="uid://cm3xsrel7krin" path="res://assets/tilesets/notebookHighlighted.png" id="1_vjoe7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsvop"]
+radius = 18.0
+
+[node name="notebook" type="Area2D"]
+
+[node name="highlight" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_vjoe7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dsvop")

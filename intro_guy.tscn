@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfcuhjcuy2y1k"]
+[gd_scene load_steps=10 format=3 uid="uid://bfcuhjcuy2y1k"]
 
 [ext_resource type="Texture2D" uid="uid://b7ydqoop1o6ue" path="res://assets/tilesets/frontDesk.png" id="1_6mlu7"]
+[ext_resource type="Script" path="res://intro_guy.gd" id="1_ugm8n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q2358"]
 radius = 15.0333
@@ -101,7 +102,8 @@ _data = {
 "intro_right": SubResource("Animation_4a3fv")
 }
 
-[node name="introGuy" type="CharacterBody2D"]
+[node name="introGuy" type="CharacterBody2D" groups=["introGuy"]]
+script = ExtResource("1_ugm8n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -110,7 +112,7 @@ hframes = 24
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(9, 8)
 shape = SubResource("CircleShape2D_q2358")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

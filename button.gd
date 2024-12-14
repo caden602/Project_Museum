@@ -22,7 +22,7 @@ func _on_body_entered(body):
 	if is_in_group("button2") and inventor_talked:
 		SignalBus.emit_signal("toggle_lantern", true)
 			
-	if is_in_group("button3") and timer.get_time_left() > 0.0:
+	if is_in_group("button3"): #and timer.get_time_left() > 0.0:
 		if button4:
 			button3 = true
 		
@@ -30,12 +30,12 @@ func _on_body_entered(body):
 		timer.start()
 		button4 = true
 		
-	if is_in_group("button5") and timer.get_time_left() > 0.0:
+	if is_in_group("button5"): #and timer.get_time_left() > 0.0:
 		if button3 and button4:
 			button5 = true
+	check_right()
 		
-	if button3 and button4 and button5:
-		SignalBus.emit_signal("door_unlocked")
+		
 
 
 # Optional: Called when a physics body exits the area
@@ -53,6 +53,16 @@ func on_inventor_talked(condition):
 
 
 func _on_timer_timeout() -> void:
-	button3 = false
-	button4 = false
-	button5 = false
+	pass
+	#button3 = false
+	#button4 = false
+	#button5 = false
+	
+func check_right():
+	print(button3)
+	print(button4)
+	print(button5)
+	if button3 and button4 and button5:
+		SignalBus.emit_signal("door_unlocked")
+		print("unlcokced")
+		

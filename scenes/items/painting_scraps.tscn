@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb0sin88qmm2p"]
+
+[ext_resource type="PackedScene" uid="uid://w1id7aawdfr5" path="res://assets/objects/scrap_1.tscn" id="1_l6gde"]
+[ext_resource type="PackedScene" uid="uid://bjcb2r4cv5o2d" path="res://assets/objects/scrap_2.tscn" id="2_o258a"]
+[ext_resource type="PackedScene" uid="uid://bijtibxbj8r1u" path="res://assets/objects/scrap_3.tscn" id="3_76wvo"]
+
+[node name="paintingScraps" type="Node2D"]
+position = Vector2(-8, 8)
+
+[node name="scrap1" parent="." instance=ExtResource("1_l6gde")]
+
+[node name="scrap2" parent="." instance=ExtResource("2_o258a")]
+
+[node name="scrap3" parent="." instance=ExtResource("3_76wvo")]
