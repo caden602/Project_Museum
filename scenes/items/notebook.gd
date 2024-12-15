@@ -35,9 +35,9 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	modulate.a = 1
 	lit = true
-	
-
-
+	print("CLOSE")
 func _on_body_exited(body: Node2D) -> void:
 	modulate.a = 0
 	lit = false
+	print("EXITED")
+	

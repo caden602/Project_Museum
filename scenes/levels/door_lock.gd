@@ -26,7 +26,7 @@ func button_door_is_unlocked():
 func _process(delta: float) -> void:
 	if is_in_group("button_lock"):
 		if Input.is_action_just_pressed("e") and button_lock_removed:
-			get_parent().get_parent().get_node("transitionMaker").main_to_bedroom()
+			get_parent().get_parent().get_node("transitionMaker").main_to_bedroom() #edit this
 	if !is_in_group("button_lock"):
 		if lit:
 			var x_pos = get_parent().get_parent().get_node("player").position.x
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 			interact.position.y = y_pos - 10
 			#display.get_node("inspect").position.x = x_pos
 			#display.get_node("inspect").position.y = y_pos - 10
-			if Input.is_action_just_pressed("e"):
+			if Input.is_action_just_pressed("e"): #remove this?
 				if not lock_removed:
 					modulate.a = 0
 					lock_removed = true
