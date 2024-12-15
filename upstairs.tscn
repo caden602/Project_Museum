@@ -3856,11 +3856,11 @@ texture = ExtResource("1_nutol")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tdfp5")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yud87"]
-size = Vector2(16, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d0yw"]
 size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yud87"]
+size = Vector2(16, 20)
 
 [node name="upstairs" type="Node2D"]
 
@@ -3939,12 +3939,14 @@ drag_vertical_enabled = true
 [node name="wallDoor" type="Area2D" parent="."]
 script = ExtResource("9_lurip")
 
-[node name="collisionDisable" type="CollisionShape2D" parent="wallDoor"]
-z_index = 1
-position = Vector2(88, 54)
-shape = SubResource("RectangleShape2D_yud87")
-
 [node name="transition" type="CollisionShape2D" parent="wallDoor"]
 z_index = 1
 position = Vector2(88, 27)
 shape = SubResource("RectangleShape2D_4d0yw")
+
+[node name="disable" type="StaticBody2D" parent="wallDoor"]
+
+[node name="collisionDisable" type="CollisionShape2D" parent="wallDoor/disable"]
+z_index = 1
+position = Vector2(88, 54)
+shape = SubResource("RectangleShape2D_yud87")

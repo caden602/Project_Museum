@@ -1,22 +1,21 @@
 extends Area2D
 
-var disabled = true
+var allow_enter = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$collisionDisable.disabled = true
-
+	$disable.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not disabled:
-		$collisionDisable.disabled = false
+	if not allow_enter:
+		$disable.get_node("collisionDisable").disabled = false 
 	else:
-		$collisionDisable.disabled = true
+		$disable.get_node("collisionDisable").disabled = true 
 func fully_opened():
 	print("OPEN")
-	disabled = false
+	allow_enter = true
 	
 func not_fully_opened():
 	print("not")
-	disabled = true
+	allow_enter = false
