@@ -1,12 +1,15 @@
 join inventor center
 inventor: Have you found my note book?
 if {Notebook} == true:
-	- Yes (Give Notebook)
-		inventor: Thank you so much young apprentice!
-		inventor: I will be sure to credit you in my publications!
-		inventor: With this I may finally rest now
-		[signal arg="exit_inventor"]
-		[end_timeline]
+	- Yes 
+		inventor: Do you still need help solving the puzzle?
+		- Yes
+			inventor: The rows represent order...
+			[end_timeline]
+		- No
+			inventor: That's what I like to hear!
+			[signal arg="exit_inventor"]
+			[end_timeline]
 - No
 	inventor: Better keep looking then!
 	inventor: Unless your mind is unfit for the challenge!
