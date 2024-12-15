@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwqjein48aet3"]
+
+[ext_resource type="Texture2D" uid="uid://cxr8k1owm0y6u" path="res://assets/tilesets/miniLeft.png" id="1_0v31r"]
+[ext_resource type="Script" path="res://scrap_1.gd" id="1_rx685"]
+[ext_resource type="Texture2D" uid="uid://c2blg5i7axquq" path="res://assets/tilesets/leftGlow.png" id="2_6xnas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8sls"]
+size = Vector2(112.5, 182.5)
+
+[node name="scrap1" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_rx685")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0v31r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-28.75, 6.25)
+shape = SubResource("RectangleShape2D_l8sls")
+
+[node name="highlight" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6xnas")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

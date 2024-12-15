@@ -37,17 +37,14 @@ func _ready():
 	Dialogic.signal_event.connect(DialogicSignal)
 	
 func _process(delta):
-	if player_in_area:
-		$AnimationPlayer.play("phar_front")
-		if Input.is_action_just_pressed("e"):
-			run_dialog("secondsister_timeline")
-	else:
-		$AnimationPlayer.play("phar_back")
+	if player_in_area and Input.is_action_just_pressed("e"):
+			run_dialog("missingsister_timeline")
 func run_dialog(dialogue_string):
 	is_chatting = true
 	Dialogic.start(dialogue_string)	
 	
 func DialogicSignal(arg: String):
+	print("end game")
 	if arg == "end_game":
 		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	pass

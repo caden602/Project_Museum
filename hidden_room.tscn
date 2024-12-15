@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://ckev6l8uxt4lu"]
+[gd_scene load_steps=14 format=4 uid="uid://ckev6l8uxt4lu"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_xxedi"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="2_vv2cx"]
-[ext_resource type="Texture2D" uid="uid://daiby7ru3o2us" path="res://statue.png" id="3_n17gf"]
 [ext_resource type="Script" path="res://area_2d22.gd" id="4_jhxoj"]
 [ext_resource type="Script" path="res://sound.gd" id="5_yacw4"]
+[ext_resource type="PackedScene" uid="uid://4pij6bboaid1" path="res://characters/second_sister.tscn" id="6_bhvrw"]
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="6_p51q4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tck6u"]
@@ -5364,9 +5364,6 @@ texture = ExtResource("2_vv2cx")
 sources/0 = SubResource("TileSetAtlasSource_fp2bm")
 sources/1 = SubResource("TileSetAtlasSource_yoww1")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fotyv"]
-size = Vector2(27, 62)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p34eb"]
 
 [node name="hiddenRoom" type="Node2D"]
@@ -5387,19 +5384,9 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAAAAAAANAAMAAAAAAAEAAAANAAQAAAAAAAIAAAAJAAcAAAABAAAAAAANAAMAAAABAAEAAAANAAQAAAABAAIAAAAJAAcAAAACAAAAAAANAAMAAAACAAEAAAANAAQAAAACAAIAAAAJAAcAAAADAAAAAAANAAMAAAADAAEAAAANAAQAAAADAAIAAAAJAAcAAAAAAAMAAAAMAAkAAAAAAAQAAAAMAAgAAAAAAAUAAAAMAAgAAAAAAAYAAAAMAAgAAAAAAAcAAAAMAAkAAAAAAAgAAAAMAAgAAAABAAgAAAAMAAkAAAACAAgAAAAMAAgAAAADAAgAAAAMAAgAAAADAAcAAAAMAAkAAAADAAYAAAAMAAgAAAADAAUAAAAMAAkAAAADAAQAAAAMAAgAAAADAAMAAAAMAAkAAAACAAMAAAAMAAgAAAABAAMAAAAMAAgAAAABAAQAAAAMAAkAAAABAAUAAAAMAAgAAAABAAYAAAAMAAkAAAABAAcAAAAMAAgAAAACAAcAAAAMAAgAAAACAAYAAAAMAAgAAAACAAUAAAAMAAkAAAACAAQAAAAMAAgAAAD/////AAAPAAAAAAADAP//AAAQAAAAAAAEAP//AAARAAAAAAACAP//AAAQAAAAAAABAP//AAAQAAAAAAAAAP//AAAQAAAAAAD//wAAAAAPAAEAAAD//wEAAAAPAAEAAAD//wIAAAAPAAEAAAD//wMAAAAPAAEAAAD//wQAAAAPAAEAAAD//wUAAAAPAAEAAAD//wYAAAAPAAEAAAD//wcAAAAPAAEAAAAEAAAAAAARAAEAAAAEAAEAAAARAAEAAAAEAAIAAAARAAEAAAAEAAMAAAARAAEAAAAEAAQAAAARAAEAAAAEAAUAAAARAAEAAAAEAAYAAAARAAEAAAAEAAcAAAARAAEAAAAEAAgAAAARAAEAAAAEAAkAAAARAAIAAAD//wkAAAAPAAIAAAD//wgAAAAPAAEAAAAAAAkAAAAVAA8AAAADAAkAAAAQAAIAAAACAAkAAAAUAA8AAAA=")
 tile_set = SubResource("TileSet_rir1u")
 
-[node name="sisterSculpture" type="Area2D" parent="."]
+[node name="SecondSister" parent="." instance=ExtResource("6_bhvrw")]
 z_index = 1
-position = Vector2(-4, 38)
-
-[node name="Sprite2D" type="Sprite2D" parent="sisterSculpture"]
-texture_filter = 1
-position = Vector2(35, 29)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_n17gf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sisterSculpture"]
-position = Vector2(34.5, 48)
-shape = SubResource("RectangleShape2D_fotyv")
+position = Vector2(30, 67)
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 1
@@ -5415,6 +5402,8 @@ script = ExtResource("5_yacw4")
 [node name="player" parent="." instance=ExtResource("6_p51q4")]
 z_index = 1
 position = Vector2(23, 125)
+collision_layer = 9
+collision_mask = 9
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2.1, 2.1)

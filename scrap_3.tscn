@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7sgnwwsps0cu"]
+[gd_scene load_steps=5 format=3 uid="uid://ma3xmv4r5qjb"]
 
+[ext_resource type="Script" path="res://scrap_3.gd" id="1_qwag7"]
 [ext_resource type="Texture2D" uid="uid://chk7nxtjp1f1q" path="res://assets/tilesets/miniRight.png" id="1_vqkk6"]
 [ext_resource type="Texture2D" uid="uid://011pfgiub4k0" path="res://assets/tilesets/rightGlow.png" id="2_25k8f"]
 
@@ -9,6 +10,7 @@ size = Vector2(125, 200)
 [node name="scrap3" type="Area2D"]
 z_index = 1
 scale = Vector2(0.2, 0.2)
+script = ExtResource("1_qwag7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -22,3 +24,6 @@ shape = SubResource("RectangleShape2D_whl3d")
 texture_filter = 1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_25k8f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project_Museum"
-run/main_scene="res://scenes/levels/main.tscn"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -152,3 +152,4 @@ e={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

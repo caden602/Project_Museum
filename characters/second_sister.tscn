@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://4pij6bboaid1"]
+
+[ext_resource type="Script" path="res://scripts/secondsister.gd" id="1_bu361"]
+[ext_resource type="Texture2D" uid="uid://daiby7ru3o2us" path="res://statue.png" id="2_lmtl0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqq0i"]
+radius = 20.0
+
+[node name="SecondSister" type="CharacterBody2D"]
+script = ExtResource("1_bu361")
+
+[node name="ChatDetectionZone" type="Area2D" parent="."]
+position = Vector2(0, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionZone"]
+shape = SubResource("CircleShape2D_yqq0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lmtl0")
+
+[connection signal="body_entered" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_entered"]
+[connection signal="body_exited" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_exited"]

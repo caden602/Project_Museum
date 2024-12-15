@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://yybhunf4x0to"]
+
+[ext_resource type="Script" path="res://scrap_2.gd" id="1_7usmi"]
+[ext_resource type="Texture2D" uid="uid://d1qvvtym0utu6" path="res://assets/tilesets/miniMiddle.png" id="1_r41lx"]
+[ext_resource type="Texture2D" uid="uid://b7nb7ana2lj6x" path="res://assets/tilesets/middleGlow.png" id="2_2ug14"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rg58n"]
+radius = 79.1012
+
+[node name="scrap2" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_7usmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_r41lx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 4)
+shape = SubResource("CircleShape2D_rg58n")
+
+[node name="highlight" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2ug14")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

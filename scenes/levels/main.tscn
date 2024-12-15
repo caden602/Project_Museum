@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://cf5ngwvuv5mcw"]
+[gd_scene load_steps=49 format=4 uid="uid://cf5ngwvuv5mcw"]
 
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
@@ -16,13 +16,10 @@
 [ext_resource type="Script" path="res://scenes/items/notebook.gd" id="13_787ts"]
 [ext_resource type="PackedScene" uid="uid://bfcuhjcuy2y1k" path="res://intro_guy.tscn" id="13_homle"]
 [ext_resource type="PackedScene" uid="uid://da5gnubhjv3e3" path="res://scenes/ui/hud.tscn" id="14_csrrl"]
-[ext_resource type="PackedScene" uid="uid://bijtibxbj8r1u" path="res://assets/objects/scrap_3.tscn" id="14_xsk23"]
-[ext_resource type="Script" path="res://assets/objects/scrap_3.gd" id="15_76u7u"]
-[ext_resource type="PackedScene" uid="uid://bjcb2r4cv5o2d" path="res://assets/objects/scrap_2.tscn" id="16_lbhry"]
-[ext_resource type="Script" path="res://assets/objects/scrap_2.gd" id="17_7slpq"]
+[ext_resource type="PackedScene" uid="uid://ma3xmv4r5qjb" path="res://scrap_3.tscn" id="14_xsk23"]
+[ext_resource type="PackedScene" uid="uid://yybhunf4x0to" path="res://scrap_2.tscn" id="16_lbhry"]
 [ext_resource type="FontFile" uid="uid://deof72rxk6pra" path="res://scenes/ui/font1.ttf" id="17_eqvd4"]
-[ext_resource type="PackedScene" uid="uid://w1id7aawdfr5" path="res://assets/objects/scrap_1.tscn" id="18_iwpvl"]
-[ext_resource type="Script" path="res://assets/objects/scrap_1.gd" id="19_wq5s0"]
+[ext_resource type="PackedScene" uid="uid://bwqjein48aet3" path="res://scrap_1.tscn" id="20_pkqyr"]
 [ext_resource type="Script" path="res://scenes/levels/painting.gd" id="20_y74pp"]
 [ext_resource type="Texture2D" uid="uid://g7abx3dcv4w3" path="res://assets/tilesets/paintingHighlight.png" id="21_gte6i"]
 [ext_resource type="Texture2D" uid="uid://ct1h85u2yds5f" path="res://assets/tilesets/lock.png" id="22_4w7sf"]
@@ -31,8 +28,8 @@
 [ext_resource type="Script" path="res://scenes/levels/interact.gd" id="24_yfsg4"]
 [ext_resource type="Script" path="res://scenes/levels/stair_lock.gd" id="25_svv28"]
 [ext_resource type="Script" path="res://scenes/levels/transition_maker.gd" id="30_2x7eh"]
+[ext_resource type="Script" path="res://scenes/levels/sound.gd" id="30_l7xj6"]
 [ext_resource type="PackedScene" path="res://singletons/button_handler.tscn" id="32_unjf0"]
-[ext_resource type="Script" path="res://scenes/levels/sound.gd" id="33_y0b37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
 size = Vector2(31.25, 54.5)
@@ -9240,6 +9237,8 @@ texture = ExtResource("8_dci1m")
 [sub_resource type="TileSet" id="TileSet_j5fnt"]
 sources/0 = SubResource("TileSetAtlasSource_dty2x")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8ytl"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1hye"]
 size = Vector2(228, 142)
 
@@ -9328,6 +9327,7 @@ tile_set = SubResource("TileSet_ciolo")
 
 [node name="Pharaoh" parent="." instance=ExtResource("10_bh2jj")]
 z_index = 1
+material = SubResource("ShaderMaterial_t8ytl")
 position = Vector2(53, 62)
 
 [node name="Painter" parent="." instance=ExtResource("10_24do1")]
@@ -9368,23 +9368,6 @@ position = Vector2(-521.5, 118)
 scale = Vector2(0.83, 0.83)
 script = ExtResource("13_787ts")
 
-[node name="scrap3" parent="Items" instance=ExtResource("14_xsk23")]
-position = Vector2(-15, -68)
-scale = Vector2(0.25, 0.25)
-script = ExtResource("15_76u7u")
-
-[node name="scrap2" parent="Items" instance=ExtResource("16_lbhry")]
-z_index = 1
-position = Vector2(-57, 52)
-scale = Vector2(0.25, 0.25)
-script = ExtResource("17_7slpq")
-
-[node name="scrap1" parent="Items" instance=ExtResource("18_iwpvl")]
-z_index = 1
-position = Vector2(-19, 5)
-scale = Vector2(0.25, 0.25)
-script = ExtResource("19_wq5s0")
-
 [node name="painting" type="Area2D" parent="Items"]
 z_index = 1
 texture_filter = 1
@@ -9396,7 +9379,7 @@ script = ExtResource("20_y74pp")
 texture = ExtResource("21_gte6i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/painting"]
-position = Vector2(-2, 49)
+position = Vector2(-2, 61)
 shape = SubResource("RectangleShape2D_v1hye")
 
 [node name="doorLock" type="Area2D" parent="Items" groups=["button_lock"]]
@@ -9442,6 +9425,17 @@ texture = ExtResource("23_bxtlx")
 position = Vector2(-248.5, 100)
 shape = SubResource("RectangleShape2D_lvmbh")
 
+[node name="scrap1" parent="Items" instance=ExtResource("20_pkqyr")]
+z_index = 1
+position = Vector2(-51, 52)
+
+[node name="scrap2" parent="Items" instance=ExtResource("16_lbhry")]
+z_index = 1
+position = Vector2(-6, 3.99998)
+
+[node name="scrap3" parent="Items" instance=ExtResource("14_xsk23")]
+position = Vector2(-13, -68)
+
 [node name="player" parent="." instance=ExtResource("4_6i6im")]
 z_index = 1
 position = Vector2(-414, -44)
@@ -9481,16 +9475,11 @@ script = ExtResource("30_2x7eh")
 [node name="ButtonHandler" parent="." instance=ExtResource("32_unjf0")]
 
 [node name="sound" type="Node2D" parent="."]
-script = ExtResource("33_y0b37")
+position = Vector2(-104, -182)
+script = ExtResource("30_l7xj6")
 
 [connection signal="body_entered" from="Items/notebook" to="Items/notebook" method="_on_body_entered"]
 [connection signal="body_exited" from="Items/notebook" to="Items/notebook" method="_on_body_exited"]
-[connection signal="body_entered" from="Items/scrap3" to="Items/scrap3" method="_on_body_entered"]
-[connection signal="body_exited" from="Items/scrap3" to="Items/scrap3" method="_on_body_exited"]
-[connection signal="body_entered" from="Items/scrap2" to="Items/scrap2" method="_on_body_entered"]
-[connection signal="body_exited" from="Items/scrap2" to="Items/scrap2" method="_on_body_exited"]
-[connection signal="body_entered" from="Items/scrap1" to="Items/scrap1" method="_on_body_entered"]
-[connection signal="body_exited" from="Items/scrap1" to="Items/scrap1" method="_on_body_exited"]
 [connection signal="body_entered" from="Items/painting" to="Items/painting" method="_on_body_entered"]
 [connection signal="body_exited" from="Items/painting" to="Items/painting" method="_on_body_exited"]
 [connection signal="body_entered" from="Items/doorLock" to="Items/doorLock" method="_on_body_entered"]

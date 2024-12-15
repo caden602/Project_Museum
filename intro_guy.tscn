@@ -3,9 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b7ydqoop1o6ue" path="res://assets/tilesets/frontDesk.png" id="1_6mlu7"]
 [ext_resource type="Script" path="res://intro_guy.gd" id="1_ugm8n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q2358"]
-radius = 15.0333
-
 [sub_resource type="Animation" id="Animation_3hkp4"]
 length = 0.001
 tracks/0/type = "value"
@@ -102,6 +99,9 @@ _data = {
 "intro_right": SubResource("Animation_4a3fv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbbmc"]
+radius = 20.0
+
 [node name="introGuy" type="CharacterBody2D" groups=["introGuy"]]
 script = ExtResource("1_ugm8n")
 
@@ -111,11 +111,16 @@ texture = ExtResource("1_6mlu7")
 hframes = 24
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 8)
-shape = SubResource("CircleShape2D_q2358")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_waj0b")
 }
+
+[node name="ChatDetectionZone" type="Area2D" parent="."]
+position = Vector2(0, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionZone"]
+shape = SubResource("CircleShape2D_lbbmc")
+
+[connection signal="body_entered" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_entered"]
+[connection signal="body_exited" from="ChatDetectionZone" to="." method="_on_chat_detection_zone_body_exited"]
