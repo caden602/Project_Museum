@@ -5,12 +5,14 @@ extends Area2D
 var inventor_talked: bool = false
 var button3: bool = false
 var button4: bool = false
-var button5: bool = false
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	connect("body_exited", Callable(self, "_on_body_exited"))
 	SignalBus.connect("inventor_talked", Callable(self, "on_inventor_talked"))
+	#SignalBus.connect("button3", Callable(self, "on_button_3"))
+	#SignalBus.connect("button4", Callable(self, "on_button_4"))
+	#SignalBus.connect("button5", Callable(self, "on_button_5"))
 
 # Called when a `CharacterBody2D` (or other physics body) enters the area
 func _on_body_entered(body):
@@ -22,18 +24,16 @@ func _on_body_entered(body):
 	if is_in_group("button2") and inventor_talked:
 		SignalBus.emit_signal("toggle_lantern", true)
 			
+	# Combination: 435
 	if is_in_group("button3"): #and timer.get_time_left() > 0.0:
-		if button4:
-			button3 = true
+		SignalBus.emit_signal("button3")
 		
 	if is_in_group("button4"):
 		timer.start()
-		button4 = true
+		SignalBus.emit_signal("button4")
 		
 	if is_in_group("button5"): #and timer.get_time_left() > 0.0:
-		if button3 and button4:
-			button5 = true
-	check_right()
+		SignalBus.emit_signal("button5")
 		
 		
 
@@ -58,11 +58,3 @@ func _on_timer_timeout() -> void:
 	#button4 = false
 	#button5 = false
 	
-func check_right():
-	print(button3)
-	print(button4)
-	print(button5)
-	if button3 and button4 and button5:
-		SignalBus.emit_signal("door_unlocked")
-		print("unlcokced")
-		
