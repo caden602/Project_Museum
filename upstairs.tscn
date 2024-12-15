@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bgeyi3u1r1fak"]
+[gd_scene load_steps=24 format=4 uid="uid://bgeyi3u1r1fak"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_nutol"]
 [ext_resource type="PackedScene" uid="uid://b5oextbgqk4pq" path="res://crate.tscn" id="1_yvvfi"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://moving_wall.gd" id="4_tqitk"]
 [ext_resource type="Texture2D" uid="uid://cdop7jq0tr7nn" path="res://assets/tilesets/wallDark.png" id="5_dxmta"]
 [ext_resource type="Script" path="res://wall_door.gd" id="9_lurip"]
+[ext_resource type="Script" path="res://transition_area.gd" id="10_g8uuf"]
+[ext_resource type="Script" path="res://sound.gd" id="11_qkykt"]
+[ext_resource type="Script" path="res://area_2d222.gd" id="12_lm0e0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qlwmx"]
 texture = ExtResource("1_nutol")
@@ -3866,6 +3869,9 @@ size = Vector2(16, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5s7n"]
 size = Vector2(14, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmpik"]
+size = Vector2(16, 30)
+
 [node name="upstairs" type="Node2D"]
 
 [node name="button" parent="." groups=["button1"] instance=ExtResource("3_b87ee")]
@@ -3931,6 +3937,8 @@ tile_set = SubResource("TileSet_w11mc")
 [node name="player" parent="." instance=ExtResource("4_k3bag")]
 z_index = 1
 position = Vector2(72, 118)
+collision_layer = 9
+collision_mask = 9
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -3956,8 +3964,23 @@ position = Vector2(88, 54)
 shape = SubResource("RectangleShape2D_yud87")
 
 [node name="transitionArea" type="Area2D" parent="."]
+script = ExtResource("10_g8uuf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transitionArea"]
 z_index = 1
 position = Vector2(72, 153)
 shape = SubResource("RectangleShape2D_v5s7n")
+
+[node name="sound" type="Node2D" parent="."]
+script = ExtResource("11_qkykt")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 1
+script = ExtResource("12_lm0e0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(88, 20)
+shape = SubResource("RectangleShape2D_gmpik")
+
+[connection signal="body_entered" from="transitionArea" to="transitionArea" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -7,6 +7,7 @@ var start_x = 88
 var start_y = 32
 var status 
 var opened = false
+var body_count = 0
 
 func _ready():
 	status = "closed"
@@ -18,7 +19,8 @@ func open():
 	status = "opening"
 	
 func close():
-	status = "closing"
+	if body_count == 0:
+		status = "closing"
 	
 func _physics_process(delta: float) -> void:
 	if status == "opening":
@@ -44,3 +46,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		get_parent().get_node("wallDoor").not_fully_opened()
 	
+func tally(math):
+	if math == "add":
+		body_count += 1
+	elif math == "sub":
+		body_count -= 1

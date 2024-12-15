@@ -20,6 +20,7 @@ func _on_body_entered(body):
 	
 	if is_in_group("button1"):
 		get_parent().get_node("movingWall").open()
+		get_parent().get_node("movingWall").tally("add")
 	
 	if is_in_group("button2") and inventor_talked:
 		SignalBus.emit_signal("toggle_lantern", true)
@@ -44,6 +45,7 @@ func _on_body_exited(body):
 	
 	if is_in_group("button1"):
 		get_parent().get_node("movingWall").close()
+		get_parent().get_node("movingWall").tally("sub")
 		
 	if is_in_group("button2"):
 		SignalBus.emit_signal("toggle_lantern", false)

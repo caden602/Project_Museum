@@ -1,6 +1,4 @@
-extends Node2D
-
-
+extends Area2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,8 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
-func main_to_bedroom():
-	get_tree().change_scene_to_file("housekeeper_room.tscn")
-func main_to_upstairs():
-	get_tree().change_scene_to_file("upstairs.tscn")
+
+
+func _on_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
