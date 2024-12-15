@@ -24,10 +24,16 @@ func _process(delta: float) -> void:
 		$ankh.modulate.a = 1
 	if has_scrap_right:
 		$paintingPieces/paintingPiece3.modulate.a = 1
+	else:
+		$paintingPieces/paintingPiece3.modulate.a = 0
 	if has_scrap_middle:
 		$paintingPieces/paintingPiece2.modulate.a = 1
+	else:
+		$paintingPieces/paintingPiece2.modulate.a = 0
 	if has_scrap_left:
 		$paintingPieces/paintingPiece1.modulate.a = 1
+	else:
+		$paintingPieces/paintingPiece1.modulate.a = 0
 	if has_key:
 		$key.modulate.a = 1
 	
