@@ -15,6 +15,7 @@ if {Sketch} == true:
 	Painter: Me?
 	Painter: I am...
 	Painter: Well, I'm a painter! That I know!
+	label Jump3
 	- You don't remember your name?
 		Painter: Yes..
 		Painter: Of course I do!
@@ -37,7 +38,7 @@ if {Sketch} == true:
 					join sketch_piece1 center
 					Painter: I found a pice of it but I'm afraid the rest are still missing.
 					leave sketch_piece1
-					join upstairs_key center 
+					join upstairs_key center
 					Painter: If you find the pices of my painting, I'll give you this key!
 					leave upstairs_key
 					label Jump1
@@ -95,18 +96,8 @@ if {Sketch} == true:
 		Painter: Ah yes! The Pharaoh!
 		Painter: Come to think of it I saw something of his recently.
 		Painter: A little girl, she stole his ahnk I believe.
-		Painter: Hid it behind one of my paintings
-		- Which painting?
-		Painter: Ummm... Lets see...
-		Painter: It was one with a bear, no wait..
-		Painter: A skull! My painting with a Skull.
-		- Are you sure?
-			Painter: Of course I'm sure!
-			Painter: ...
-			Painter: ... wait, where am I?
-		- Thanks!
-			Painter: Feel free to admire my work!
-			[end_timeline]
+		Painter: Hid  it in one of the rooms here...
+		jump Jump3
 - Sorry, cant talk now.
 	Painter: Farewell!
 	[end_timeline]

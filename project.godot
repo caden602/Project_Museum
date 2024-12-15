@@ -23,6 +23,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"MissingSister": "res://characters/MissingSister.dch",
 "Painter": "res://characters/Painter.dch",
 "Pharaoh": "res://characters/Pharaoh.dch",
 "Receptionist": "res://characters/Receptionist.dch",
@@ -37,6 +38,7 @@ directories/dtl_directory={
 "inventor_timeline": "res://dialog/inventor_timeline.dtl",
 "inventor_timeline2": "res://dialog/inventor_timeline2.dtl",
 "inventor_timeline3": "res://dialog/inventor_timeline3.dtl",
+"missingsister_timeline": "res://dialog/missingsister_timeline.dtl",
 "painter_timeline": "res://dialog/painter_timeline.dtl",
 "pharaoh_timeline": "res://dialog/pharaoh_timeline.dtl",
 "receptionist_timeline": "res://dialog/receptionist_timeline.dtl"

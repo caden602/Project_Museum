@@ -1,0 +1,22 @@
+join MissingSister center
+MissingSister: You shouldn't be here. This is my place,
+- Im just trying to explore the museum.
+	MissingSister: Explore? You think you can just waltz in here and explore?
+	MissingSister: You have no idea what it's like to be trapped here
+	MissingSister: Alone and forgotten.
+	- Why are you trapped?
+		MissingSister: My statue...
+		MissingSister: It was supposed to be placed next to my other sisters statues
+		- Where are the other statues?
+			MissingSister: They are in a my home land's museum
+			MissingSister: Where I belong
+			- I'm sorry you're not with them
+				MissingSister: Will you help me get back?
+				- Yes (Send statue home)
+					MissingSister: I will never forget you
+					MissingSister: Thank you...
+					[end_timeline]
+					[signal arg="end_game"]
+				- No
+					MissingSister: I will rot here..
+					[end_timeline]
