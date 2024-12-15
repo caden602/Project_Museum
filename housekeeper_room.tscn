@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c257dbhryddhj"]
+[gd_scene load_steps=18 format=4 uid="uid://pj25qxgayr3p"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_xbmrp"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="2_88k41"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://sprite_2d_2.gd" id="4_kd6ek"]
 [ext_resource type="Texture2D" uid="uid://etfkwmc6tpy3" path="res://ankhHighlighted.png" id="6_pkmex"]
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="9_f6jhg"]
+[ext_resource type="PackedScene" uid="uid://da5gnubhjv3e3" path="res://scenes/ui/hud.tscn" id="10_7ra4d"]
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="11_q1yuc"]
+[ext_resource type="FontFile" uid="uid://deof72rxk6pra" path="res://scenes/ui/font1.ttf" id="12_5thod"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebser"]
 texture = ExtResource("1_xbmrp")
@@ -3325,9 +3328,30 @@ scale = Vector2(0.00875, 0.00875)
 texture = ExtResource("3_5ihh6")
 script = ExtResource("4_kd6ek")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("9_f6jhg")]
+[node name="player" parent="." instance=ExtResource("9_f6jhg")]
 z_index = 1
 position = Vector2(82, 85)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(0, 8)
+zoom = Vector2(2.1, 2.1)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="HUD" parent="." instance=ExtResource("10_7ra4d")]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("11_q1yuc")
+
+[node name="interact" type="RichTextLabel" parent="."]
+z_index = 1
+texture_filter = 1
+offset_right = 122.0
+offset_bottom = 25.0
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/normal_font = ExtResource("12_5thod")
+text = "e to interact"
 
 [connection signal="body_entered" from="ankh" to="ankh" method="_on_body_entered"]
 [connection signal="body_exited" from="ankh" to="ankh" method="_on_body_exited"]

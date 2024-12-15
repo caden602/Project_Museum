@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://dcrd2o08gjf7q"]
+[gd_scene load_steps=19 format=4 uid="uid://bgeyi3u1r1fak"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_nutol"]
 [ext_resource type="PackedScene" uid="uid://b5oextbgqk4pq" path="res://crate.tscn" id="1_yvvfi"]
-[ext_resource type="PackedScene" uid="uid://bnyu27pb5p1rf" path="res://button.tscn" id="3_b87ee"]
+[ext_resource type="PackedScene" uid="uid://cy1wwt1pwr2qp" path="res://button.tscn" id="3_b87ee"]
 [ext_resource type="PackedScene" uid="uid://c7anietum2bje" path="res://movingWall.tscn" id="3_te1mp"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="4_c2t01"]
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="4_k3bag"]
 [ext_resource type="Script" path="res://moving_wall.gd" id="4_tqitk"]
 [ext_resource type="Texture2D" uid="uid://cdop7jq0tr7nn" path="res://assets/tilesets/wallDark.png" id="5_dxmta"]
+[ext_resource type="Script" path="res://wall_door.gd" id="9_lurip"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qlwmx"]
 texture = ExtResource("1_nutol")
@@ -183,11 +184,8 @@ texture = ExtResource("1_nutol")
 13:7/0 = 0
 14:7/0 = 0
 15:7/0 = 0
-15:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:7/0 = 0
-16:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 17:7/0 = 0
-17:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:7/0 = 0
 19:7/0 = 0
 20:7/0 = 0
@@ -599,6 +597,7 @@ texture = ExtResource("1_nutol")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbcv1"]
 texture = ExtResource("4_c2t01")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -3857,6 +3856,12 @@ texture = ExtResource("1_nutol")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tdfp5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d0yw"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yud87"]
+size = Vector2(16, 20)
+
 [node name="upstairs" type="Node2D"]
 
 [node name="button" parent="." groups=["button1"] instance=ExtResource("3_b87ee")]
@@ -3879,6 +3884,17 @@ position = Vector2(72, 32)
 texture = ExtResource("5_dxmta")
 
 [node name="tilemaps" type="Node" parent="."]
+
+[node name="movementBlockerMini" type="TileMapLayer" parent="tilemaps"]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray("AAAiAB0AAQAAAAAAAAAhAB0AAQAAAAAAAAAjAB0AAQAAAAAAAAAjAB4AAQAAAAAAAAAjAB8AAQAAAAAAAAAiAB8AAQAAAAAAAAAiAB4AAQAAAAAAAAAhAB4AAQAAAAAAAAAhAB8AAQAAAAAAAAAkAB8AAQAAAAAAAAAlAB8AAQAAAAAAAAAmAB8AAQAAAAAAAAAnAB8AAQAAAAAAAAAnAB4AAQAAAAAAAAAnAB0AAQAAAAAAAAAnABwAAQAAAAAAAAAmABwAAQAAAAAAAAAmABsAAQAAAAAAAAAlABsAAQAAAAAAAAAnABsAAQAAAAAAAAAmAB0AAQAAAAAAAAAlAB0AAQAAAAAAAAAkAB0AAQAAAAAAAAAlABwAAQAAAAAAAAAlAB4AAQAAAAAAAAAkAB4AAQAAAAAAAAAmAB4AAQAAAAAAAAAlAAwAAQAAAAAAAAAlAA0AAQAAAAAAAAAlAA4AAQAAAAAAAAAlAA8AAQAAAAAAAAAlABAAAQAAAAAAAAAlABEAAQAAAAAAAAAlABIAAQAAAAAAAAAlABMAAQAAAAAAAAAlABQAAQAAAAAAAAAlABUAAQAAAAAAAAAlABYAAQAAAAAAAAAlABcAAQAAAAAAAAAlABgAAQAAAAAAAAAlABkAAQAAAAAAAAAlABoAAQAAAAAAAAAeABEAAQAAAAAAAAAdABEAAQAAAAAAAAAcABEAAQAAAAAAAAAbABEAAQAAAAAAAAAaABEAAQAAAAAAAAAZABEAAQAAAAAAAAAYABEAAQAAAAAAAAAYABAAAQAAAAAAAAAYAA8AAQAAAAAAAAAYAA4AAQAAAAAAAAAeABAAAQAAAAAAAAAeAA8AAQAAAAAAAAAeAA4AAQAAAAAAAAAOAA8AAQAAAAAAAAAOABAAAQAAAAAAAAAOABEAAQAAAAAAAAANABEAAQAAAAAAAAAMABEAAQAAAAAAAAALABEAAQAAAAAAAAAKABEAAQAAAAAAAAAJABEAAQAAAAAAAAAIABEAAQAAAAAAAAAHABEAAQAAAAAAAAAGABEAAQAAAAAAAAAFABEAAQAAAAAAAAAEABEAAQAAAAAAAAADABEAAQAAAAAAAAACABEAAQAAAAAAAAABABEAAQAAAAAAAAABABAAAQAAAAAAAAABAA8AAQAAAAAAAAABAA4AAQAAAAAAAAAOAA4AAQAAAAAAAAAKABkAAQAAAAAAAAAJABkAAQAAAAAAAAAJABgAAQAAAAAAAAAKABgAAQAAAAAAAAAGABkAAQAAAAAAAAAGABgAAQAAAAAAAAAFABgAAQAAAAAAAAAFABkAAQAAAAAAAAAFABcAAQAAAAAAAAAFABYAAQAAAAAAAAAFABUAAQAAAAAAAAAFABQAAQAAAAAAAAAGABQAAQAAAAAAAAAHABQAAQAAAAAAAAAIABQAAQAAAAAAAAAJABQAAQAAAAAAAAAKABQAAQAAAAAAAAALABUAAQAAAAAAAAAKABUAAQAAAAAAAAAKABYAAQAAAAAAAAAKABcAAQAAAAAAAAAJABcAAQAAAAAAAAAIABcAAQAAAAAAAAAHABcAAQAAAAAAAAAGABcAAQAAAAAAAAAGABYAAQAAAAAAAAAGABUAAQAAAAAAAAAIABUAAQAAAAAAAAAJABUAAQAAAAAAAAAJABYAAQAAAAAAAAAIABYAAQAAAAAAAAAHABYAAQAAAAAAAAALABYAAQAAAAAAAAALABQAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_t12j0")
+
+[node name="movementBlocker" type="TileMapLayer" parent="tilemaps"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAD//wMAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAD//wYAAQAAAAAAAAD//wcAAQAAAAAAAAD//wgAAQAAAAAAAAAAAAgAAQAAAAAAAAABAAgAAQAAAAAAAAACAAgAAQAAAAAAAAADAAgAAQAAAAAAAAADAAkAAQAAAAAAAAACAAoAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAGAAkAAQAAAAAAAAAGAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAcAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAD+/wMAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAQAAAAAAAAD+/wAAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAMAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAIAAMAAQAAAAAAAAAJAAMAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_t12j0")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="tilemaps"]
 texture_filter = 1
@@ -3910,5 +3926,27 @@ tile_set = SubResource("TileSet_w11mc")
 
 [node name="player" parent="." instance=ExtResource("4_k3bag")]
 z_index = 1
-position = Vector2(68, 92)
+position = Vector2(72, 142)
 motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-1, 7)
+zoom = Vector2(2.1, 2.1)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="wallDoor" type="Area2D" parent="."]
+script = ExtResource("9_lurip")
+
+[node name="transition" type="CollisionShape2D" parent="wallDoor"]
+z_index = 1
+position = Vector2(88, 27)
+shape = SubResource("RectangleShape2D_4d0yw")
+
+[node name="disable" type="StaticBody2D" parent="wallDoor"]
+
+[node name="collisionDisable" type="CollisionShape2D" parent="wallDoor/disable"]
+z_index = 1
+position = Vector2(88, 54)
+shape = SubResource("RectangleShape2D_yud87")

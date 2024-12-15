@@ -1,15 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlukxftvlq6sd"]
 
-[ext_resource type="Texture2D" uid="uid://c7ln2kx5mugif" path="res://icon.svg" id="1_i57xd"]
 [ext_resource type="Script" path="res://scripts/lantern.gd" id="1_n6nqj"]
+[ext_resource type="Texture2D" uid="uid://bmi6d43gtdlem" path="res://assets/tilesets/LANTERN-1.png.png" id="2_2kl31"]
 
 [node name="Lantern" type="Node2D"]
 script = ExtResource("1_n6nqj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-3.8147e-06, -1)
-scale = Vector2(0.125, 0.109375)
-texture = ExtResource("1_i57xd")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2kl31")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5

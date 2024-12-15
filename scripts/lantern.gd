@@ -4,12 +4,12 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("toggle_lantern", Callable(self, "on_toggle"))
-	self.visible = false
+	self.visible = true
 	
 func on_toggle(enabled):
 	if enabled:
 		timer.start()
-		self.visible = true
+		self.visible = false
 	else:
 		pass
 

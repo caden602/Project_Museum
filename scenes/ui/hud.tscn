@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://da5gnubhjv3e3"]
+
+[ext_resource type="Texture2D" uid="uid://ccuq3r0s6fhuy" path="res://assets/tilesets/painting/paintingPiece1.png" id="1_bijas"]
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_vkpt0"]
+[ext_resource type="Texture2D" uid="uid://drl2ivgvvu720" path="res://assets/tilesets/painting/paintingPiece2.png" id="2_kclv6"]
+[ext_resource type="Texture2D" uid="uid://ty8b3hc6747a" path="res://assets/tilesets/painting/paintingPiece3.png" id="3_yimtl"]
+[ext_resource type="Texture2D" uid="uid://crfagmj6nftm1" path="res://assets/tilesets/notebookLarge.png" id="4_sv5mn"]
+[ext_resource type="Texture2D" uid="uid://f3ad0ovwcbxk" path="res://ANKH.png" id="5_mnwbd"]
+[ext_resource type="Texture2D" uid="uid://d4kualtbvjbek" path="res://assets/tilesets/notebookZoom.png" id="6_jgqmj"]
+[ext_resource type="Texture2D" uid="uid://c2ehp1anpee7a" path="res://assets/tilesets/key.png" id="7_5ja0c"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_vkpt0")
+
+[node name="paintingPieces" type="Node" parent="."]
+
+[node name="paintingPiece1" type="TextureRect" parent="paintingPieces"]
+texture_filter = 1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 131.0
+offset_bottom = 67.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_bijas")
+
+[node name="paintingPiece2" type="TextureRect" parent="paintingPieces"]
+texture_filter = 1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 131.0
+offset_bottom = 67.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_kclv6")
+
+[node name="paintingPiece3" type="TextureRect" parent="paintingPieces"]
+texture_filter = 1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 131.0
+offset_bottom = 67.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_yimtl")
+
+[node name="notebook" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 166.0
+offset_bottom = 71.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_sv5mn")
+
+[node name="ankh" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 33.0
+offset_top = 3.0
+offset_right = 161.0
+offset_bottom = 83.0
+scale = Vector2(0.15, 0.25)
+texture = ExtResource("5_mnwbd")
+
+[node name="key" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 186.0
+offset_bottom = 86.0
+scale = Vector2(0.04, 0.1)
+texture = ExtResource("7_5ja0c")
+
+[node name="notebookInspect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 32.0
+offset_top = 27.0
+offset_right = 512.0
+offset_bottom = 267.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_jgqmj")
