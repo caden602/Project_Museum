@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://pj25qxgayr3p"]
+[gd_scene load_steps=26 format=4 uid="uid://pj25qxgayr3p"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_xbmrp"]
 [ext_resource type="Texture2D" uid="uid://3qi8qv40x7n8" path="res://assets/tilesets/windowsDarkened.png" id="2_88k41"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="9_f6jhg"]
 [ext_resource type="PackedScene" uid="uid://da5gnubhjv3e3" path="res://scenes/ui/hud.tscn" id="10_7ra4d"]
 [ext_resource type="FontFile" uid="uid://deof72rxk6pra" path="res://scenes/ui/font1.ttf" id="12_5thod"]
+[ext_resource type="Script" path="res://area_2d2.gd" id="12_g016l"]
+[ext_resource type="Script" path="res://sound.gd" id="13_o0ihp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pfpyr"]
 texture = ExtResource("1_xbmrp")
@@ -8617,6 +8619,8 @@ sources/2 = SubResource("TileSetAtlasSource_p5275")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_040h5"]
 size = Vector2(27, 37)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcdfl"]
+
 [node name="housekeeperRoom" type="Node2D"]
 
 [node name="tilesets" type="Node" parent="."]
@@ -8699,6 +8703,8 @@ script = ExtResource("4_kd6ek")
 [node name="player" parent="." instance=ExtResource("9_f6jhg")]
 z_index = 1
 position = Vector2(82, 85)
+collision_layer = 9
+collision_mask = 9
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, 8)
@@ -8721,5 +8727,17 @@ scale = Vector2(0.4, 0.4)
 theme_override_fonts/normal_font = ExtResource("12_5thod")
 text = "e to interact"
 
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 1
+script = ExtResource("12_g016l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(54, 123)
+shape = SubResource("RectangleShape2D_dcdfl")
+
+[node name="sound" type="Node2D" parent="."]
+script = ExtResource("13_o0ihp")
+
 [connection signal="body_entered" from="ankh" to="ankh" method="_on_body_entered"]
 [connection signal="body_exited" from="ankh" to="ankh" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
