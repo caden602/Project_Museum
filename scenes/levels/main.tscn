@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://cf5ngwvuv5mcw"]
+[gd_scene load_steps=50 format=4 uid="uid://cf5ngwvuv5mcw"]
 
 [ext_resource type="Texture2D" uid="uid://lh13khadejlc" path="res://assets/sprites/test_sprites/Test_Scene.png" id="1_yhwuu"]
 [ext_resource type="PackedScene" uid="uid://yaskmpkls40f" path="res://scenes/dialog/dialog_area.tscn" id="2_gwkgc"]
@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cy1wwt1pwr2qp" path="res://button.tscn" id="11_lokfv"]
 [ext_resource type="PackedScene" uid="uid://cc60augqt45l6" path="res://characters/inventor.tscn" id="11_wglk0"]
 [ext_resource type="PackedScene" uid="uid://dlukxftvlq6sd" path="res://scenes/items/lantern.tscn" id="12_ct1yh"]
-[ext_resource type="PackedScene" uid="uid://dnleh6cbnmbn0" path="res://scenes/items/notebook.tscn" id="12_eyx5d"]
+[ext_resource type="PackedScene" path="res://scenes/items/notebook.tscn" id="12_eyx5d"]
 [ext_resource type="Script" path="res://scenes/items/notebook.gd" id="13_787ts"]
 [ext_resource type="PackedScene" uid="uid://bfcuhjcuy2y1k" path="res://intro_guy.tscn" id="13_homle"]
-[ext_resource type="PackedScene" uid="uid://da5gnubhjv3e3" path="res://scenes/ui/hud.tscn" id="14_csrrl"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="14_csrrl"]
 [ext_resource type="PackedScene" uid="uid://bijtibxbj8r1u" path="res://assets/objects/scrap_3.tscn" id="14_xsk23"]
 [ext_resource type="Script" path="res://assets/objects/scrap_3.gd" id="15_76u7u"]
 [ext_resource type="PackedScene" uid="uid://bjcb2r4cv5o2d" path="res://assets/objects/scrap_2.tscn" id="16_lbhry"]
@@ -31,8 +31,7 @@
 [ext_resource type="Script" path="res://scenes/levels/interact.gd" id="24_yfsg4"]
 [ext_resource type="Script" path="res://scenes/levels/stair_lock.gd" id="25_svv28"]
 [ext_resource type="Script" path="res://scenes/levels/transition_maker.gd" id="30_2x7eh"]
-[ext_resource type="PackedScene" path="res://singletons/button_handler.tscn" id="32_unjf0"]
-[ext_resource type="Script" path="res://scenes/levels/sound.gd" id="33_y0b37"]
+[ext_resource type="PackedScene" uid="uid://bqw2x500n2nr6" path="res://singletons/button_handler.tscn" id="32_unjf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeyrb"]
 size = Vector2(31.25, 54.5)
@@ -2712,8 +2711,7 @@ texture = ExtResource("7_vi0xy")
 21:59/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_50kqn"]
-physics_layer_0/collision_layer = 8
-physics_layer_0/collision_mask = 8
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_2f15c")
 sources/1 = SubResource("TileSetAtlasSource_ivdcs")
 
@@ -5392,8 +5390,7 @@ texture = ExtResource("7_vi0xy")
 21:59/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_hf4w1"]
-physics_layer_0/collision_layer = 8
-physics_layer_0/collision_mask = 8
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_k7dd3")
 sources/1 = SubResource("TileSetAtlasSource_0ppva")
 
@@ -9396,7 +9393,7 @@ script = ExtResource("20_y74pp")
 texture = ExtResource("21_gte6i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/painting"]
-position = Vector2(-2, 49)
+position = Vector2(-2, 61)
 shape = SubResource("RectangleShape2D_v1hye")
 
 [node name="doorLock" type="Area2D" parent="Items" groups=["button_lock"]]
@@ -9445,8 +9442,6 @@ shape = SubResource("RectangleShape2D_lvmbh")
 [node name="player" parent="." instance=ExtResource("4_6i6im")]
 z_index = 1
 position = Vector2(-414, -44)
-collision_layer = 9
-collision_mask = 9
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, 10)
@@ -9479,9 +9474,6 @@ script = ExtResource("24_yfsg4")
 script = ExtResource("30_2x7eh")
 
 [node name="ButtonHandler" parent="." instance=ExtResource("32_unjf0")]
-
-[node name="sound" type="Node2D" parent="."]
-script = ExtResource("33_y0b37")
 
 [connection signal="body_entered" from="Items/notebook" to="Items/notebook" method="_on_body_entered"]
 [connection signal="body_exited" from="Items/notebook" to="Items/notebook" method="_on_body_exited"]

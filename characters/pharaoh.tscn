@@ -1,7 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3nwmth1iq6qx"]
+[gd_scene load_steps=11 format=3 uid="uid://c3nwmth1iq6qx"]
 
 [ext_resource type="Script" path="res://scripts/pharaoh.gd" id="1_mb551"]
+[ext_resource type="Shader" uid="uid://bmbdqdguqhmmp" path="res://characters/pharaoh.tres" id="1_ocng6"]
 [ext_resource type="Texture2D" uid="uid://cejao21i3ln4e" path="res://assets/tilesets/pharaoh.png" id="2_wr5ns"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8ytl"]
+shader = ExtResource("1_ocng6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2nxm"]
+shader = ExtResource("1_ocng6")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqq0i"]
 radius = 20.0
@@ -65,10 +72,12 @@ _data = {
 }
 
 [node name="Pharaoh" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_t8ytl")
 script = ExtResource("1_mb551")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_f2nxm")
 position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_wr5ns")
