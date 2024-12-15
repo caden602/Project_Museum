@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=4 uid="uid://bgeyi3u1r1fak"]
+[gd_scene load_steps=19 format=4 uid="uid://bgeyi3u1r1fak"]
 
 [ext_resource type="Texture2D" uid="uid://b5nkjwyhviw1g" path="res://assets/tilesets/Tileset_SpookyMansion_16x16.png" id="1_nutol"]
-[ext_resource type="PackedScene" uid="uid://b5oextbgqk4pq" path="res://crate.tscn" id="1_yvvfi"]
+[ext_resource type="PackedScene" path="res://crate.tscn" id="1_yvvfi"]
 [ext_resource type="PackedScene" uid="uid://cy1wwt1pwr2qp" path="res://button.tscn" id="3_b87ee"]
-[ext_resource type="PackedScene" uid="uid://c7anietum2bje" path="res://movingWall.tscn" id="3_te1mp"]
+[ext_resource type="PackedScene" path="res://movingWall.tscn" id="3_te1mp"]
 [ext_resource type="Texture2D" uid="uid://cr3o4j7owvt1k" path="res://assets/tilesets/Tileset_SpookyMansion_32x32.png" id="4_c2t01"]
 [ext_resource type="PackedScene" uid="uid://jyf5e8p5250u" path="res://assets/actors/playerAnim.tscn" id="4_k3bag"]
 [ext_resource type="Script" path="res://moving_wall.gd" id="4_tqitk"]
@@ -2705,8 +2705,7 @@ texture = ExtResource("4_c2t01")
 21:59/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_t12j0"]
-physics_layer_0/collision_layer = 8
-physics_layer_0/collision_mask = 8
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qlwmx")
 sources/1 = SubResource("TileSetAtlasSource_fbcv1")
 
@@ -3863,9 +3862,6 @@ size = Vector2(16, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yud87"]
 size = Vector2(16, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5s7n"]
-size = Vector2(14, 16)
-
 [node name="upstairs" type="Node2D"]
 
 [node name="button" parent="." groups=["button1"] instance=ExtResource("3_b87ee")]
@@ -3930,7 +3926,7 @@ tile_set = SubResource("TileSet_w11mc")
 
 [node name="player" parent="." instance=ExtResource("4_k3bag")]
 z_index = 1
-position = Vector2(72, 118)
+position = Vector2(72, 142)
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -3954,10 +3950,3 @@ shape = SubResource("RectangleShape2D_4d0yw")
 z_index = 1
 position = Vector2(88, 54)
 shape = SubResource("RectangleShape2D_yud87")
-
-[node name="transitionArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="transitionArea"]
-z_index = 1
-position = Vector2(72, 153)
-shape = SubResource("RectangleShape2D_v5s7n")
